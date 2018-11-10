@@ -1,0 +1,49 @@
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # enable the SonataAdminBundle block
+        sonata.admin.block.stats:
+            contexts:   [admin]
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        sonata.admin.block.search_result:
+            contexts:   [admin]
+            
+        sonata.block.service.custom: ~
+
+sonata_admin:
+    security:
+        admin_permissions:
+
+            # Defaults:
+            - CREATE
+            - LIST
+            - DELETE
+            - UNDELETE
+            - OPERATOR
+            - MASTER
+    
+    
+    
+    title: CAN Easylink
+    title_logo: img/logo1.svg
+    templates: 
+        layout: NanotechEasylinkAdminBundle::standard_layout.html.twig
+        dashboard: NanotechEasylinkAdminBundle:Core:dashboard.html.twig
+    dashboard:
+        groups:
+            
+            app.admin.group.admin:
+                label: "Administration"
+                label_catalogue: EasylinkBundle
+                icon: '<i class="fa fa-home"></i>'
+                items:           
+
+                    
+                     
+    security:
+        handler: sonata.admin.security.handler.role
+
+        role_admin: ROLE_ADMIN
+        role_super_admin: ROLE_SUPER_ADMIN
+        

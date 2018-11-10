@@ -1,0 +1,3 @@
+nanotech_easylink_homepage:
+    path:     /
+    defaults: { _controller: NanotechEasylinkBundle:Default:index }
