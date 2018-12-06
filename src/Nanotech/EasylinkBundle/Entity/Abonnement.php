@@ -24,28 +24,28 @@ class Abonnement
     /**
      * @var string
      *
-     * @ORM\Column(name="transaction", type="text", unique=true)
+     * @ORM\Column(name="transaction", type="text",length=255)
      */
     private $transaction;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="details", type="text", unique=true)
+     * @ORM\Column(name="details", type="text",length=255)
      */
     private $details;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="montant", type="float", unique=true)
+     * @ORM\Column(name="montant", type="float", length=255)
      */
     private $montant;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateEn", type="datetime", unique=true)
+     * @ORM\Column(name="dateEn", type="datetime")
      */
     private $dateEn;
     

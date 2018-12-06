@@ -34,7 +34,7 @@ class Utilisateur extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
+     * @ORM\Column(name="prenom", type="string", length=255, )
      */
     private $prenom;
 
@@ -88,21 +88,21 @@ class Utilisateur extends BaseUser
      /**
      * @var string
      *
-     * @ORM\Column(name="ville", type="string", length=255, nullable=true)
+     * @ORM\Column(name="ville", type="string", length=255, length=255)
      */
     private $ville;
     
      /**
      * @var int
      *
-     * @ORM\Column(name="code_postale", type="integer", nullable=true)
+     * @ORM\Column(name="code_postale", type="integer", )
      */
     private $codePostale;
     
      /**
      * @var text
      *
-     * @ORM\Column(name="adresse", type="string", nullable=true)
+     * @ORM\Column(name="adresse", type="string",length=255)
      */
     private $adresse;
 

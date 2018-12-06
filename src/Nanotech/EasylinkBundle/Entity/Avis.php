@@ -24,28 +24,28 @@ class Avis
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu", type="text", unique=true)
+     * @ORM\Column(name="contenu", type="text", length=255)
      */
     private $contenu;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="Note", type="integer", unique=true)
+     * @ORM\Column(name="Note", type="integer",length=255)
      */
     private $note;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="amelioration", type="text", unique=true)
+     * @ORM\Column(name="amelioration", type="text", length=255)
      */
     private $amelioration;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateEn", type="datetime", unique=true)
+     * @ORM\Column(name="dateEn", type="datetime", length=255)
      */
     private $dateEn;
     

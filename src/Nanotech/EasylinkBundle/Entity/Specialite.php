@@ -24,21 +24,21 @@ class Specialite
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="text", unique=true)
+     * @ORM\Column(name="nom", type="text", length=255)
      */
     private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="De_courte", type="text", unique=true)
+     * @ORM\Column(name="De_courte", type="text",length=255)
      */
     private $deCourte;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="de_longue", type="text", unique=true)
+     * @ORM\Column(name="de_longue", type="text", length=255)
      */
     private $deLongue;
     

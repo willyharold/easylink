@@ -24,21 +24,21 @@ class Message
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=255, unique=true)
+     * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu", type="text", unique=true)
+     * @ORM\Column(name="contenu", type="text")
      */
     private $contenu;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateEn", type="datetime", unique=true)
+     * @ORM\Column(name="dateEn", type="datetime")
      */
     private $dateEn;
     

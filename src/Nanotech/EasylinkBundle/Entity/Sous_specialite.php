@@ -24,28 +24,28 @@ class Sous_specialite
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="text", unique=true)
+     * @ORM\Column(name="nom", type="text",length=255)
      */
     private $nom;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="tarif", type="float", unique=true)
+     * @ORM\Column(name="tarif", type="float")
      */
     private $tarif;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="de_courte", type="text", unique=true)
+     * @ORM\Column(name="de_courte", type="text", length=255)
      */
     private $deCourte;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="de_longue", type="text", unique=true)
+     * @ORM\Column(name="de_longue", type="text",length=255)
      */
     private $deLongue;
 

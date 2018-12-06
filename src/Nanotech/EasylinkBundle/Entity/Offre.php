@@ -24,49 +24,49 @@ class Offre
     /**
      * @var string
      *
-     * @ORM\Column(name="objet", type="text", unique=true)
+     * @ORM\Column(name="objet", type="text",length=255)
      */
     private $objet;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", unique=true)
+     * @ORM\Column(name="description", type="text", length=255)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=255, unique=true)
+     * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="de_travaux", type="string", length=255, unique=true)
+     * @ORM\Column(name="de_travaux", type="string", length=255)
      */
     private $deTravaux;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="text", unique=true)
+     * @ORM\Column(name="adresse", type="text", length=255)
      */
     private $adresse;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="adressecom", type="text", unique=true)
+     * @ORM\Column(name="adressecom", type="text", length=255)
      */
     private $adressecom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="ville", type="text", unique=true)
+     * @ORM\Column(name="ville", type="text", length=255)
      */
     private $ville;
 
@@ -87,35 +87,35 @@ class Offre
     /**
      * @var string
      *
-     * @ORM\Column(name="paiement", type="string", length=255, unique=true)
+     * @ORM\Column(name="paiement", type="string", length=255 )
      */
     private $paiement;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="note", type="integer", unique=true)
+     * @ORM\Column(name="note", type="integer")
      */
     private $note;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="commentaire", type="text", unique=true)
+     * @ORM\Column(name="commentaire", type="text")
      */
     private $commentaire;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="etat", type="string", length=255, unique=true)
+     * @ORM\Column(name="etat", type="string", length=255)
      */
     private $etat;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateEn", type="datetime", unique=true)
+     * @ORM\Column(name="dateEn", type="datetime")
      */
     private $dateEn;
 

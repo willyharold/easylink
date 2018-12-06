@@ -24,7 +24,7 @@ class Affectation
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateEn", type="datetime", unique=true)
+     * @ORM\Column(name="dateEn", type="datetime")
      */
     private $dateEn;
 
