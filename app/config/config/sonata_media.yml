@@ -38,12 +38,12 @@ sonata_media:
             formats:
                 big:   { width: 500 , quality: 70}
                 
-        image_parution:  
+        image:  
             providers:
                 - sonata.media.provider.image
           
             formats:
-                big:  { width: 664 ,height: 885 , quality: 75}
+                big:  { width: 300 ,height: 300 , quality: 100}
                 
         fichier_parution:  
             providers:

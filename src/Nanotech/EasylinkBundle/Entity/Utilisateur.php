@@ -72,6 +72,40 @@ class Utilisateur extends BaseUser
 
     protected $username;
 
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="abonnement", type="string", length=255)
+     */
+    private $abonnement;
+    
+     /**
+    * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Specialite")
+    * @ORM\JoinColumn(nullable=false) 
+    */
+    private $specialite; 
+    
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255, nullable=true)
+     */
+    private $ville;
+    
+     /**
+     * @var int
+     *
+     * @ORM\Column(name="code_postale", type="integer", nullable=true)
+     */
+    private $codePostale;
+    
+     /**
+     * @var text
+     *
+     * @ORM\Column(name="adresse", type="string", nullable=true)
+     */
+    private $adresse;
+
 
     /**
      * Get id
@@ -226,4 +260,70 @@ class Utilisateur extends BaseUser
     {
         return $this->dateEnreg;
     }
+    
+    function getEmail() {
+        return $this->email;
+    }
+
+    function getPassword() {
+        return $this->password;
+    }
+
+    function getUsername() {
+        return $this->username;
+    }
+
+    function getAbonnement() {
+        return $this->abonnement;
+    }
+
+    function getSpecialite() {
+        return $this->specialite;
+    }
+
+    function getVille() {
+        return $this->ville;
+    }
+
+    function getCodePostale() {
+        return $this->codePostale;
+    }
+
+    function getAdresse() {
+        return $this->adresse;
+    }
+
+    function setEmail($email) {
+        $this->email = $email;
+    }
+
+    function setPassword($password) {
+        $this->password = $password;
+    }
+
+    function setUsername($username) {
+        $this->username = $username;
+    }
+
+    function setAbonnement($abonnement) {
+        $this->abonnement = $abonnement;
+    }
+
+    function setSpecialite($specialite) {
+        $this->specialite = $specialite;
+    }
+
+    function setVille($ville) {
+        $this->ville = $ville;
+    }
+
+    function setCodePostale($codePostale) {
+        $this->codePostale = $codePostale;
+    }
+
+    function setAdresse(text $adresse) {
+        $this->adresse = $adresse;
+    }
+
+
 }
