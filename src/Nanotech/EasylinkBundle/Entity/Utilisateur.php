@@ -325,5 +325,10 @@ class Utilisateur extends BaseUser
         $this->adresse = $adresse;
     }
 
+    public function __construct()
+    {
+        $this->dateEn = new \DateTime();
+
+    }
 
 }

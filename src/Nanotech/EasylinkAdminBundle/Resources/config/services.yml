@@ -1,1 +1,63 @@
 services:
+    nanotech_easylink_admin.admin.abonnement:
+        class: Nanotech\EasylinkAdminBundle\Admin\AbonnementAdmin
+        arguments: [~, Nanotech\EasylinkBundle\Entity\Abonnement, NanotechEasylinkAdminBundle:AbonnementAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Abonnement }
+        public: true
+
+    nanotech_easylink_admin.admin.affectation:
+        class: Nanotech\EasylinkAdminBundle\Admin\AffectationAdmin
+        arguments: [~, Nanotech\EasylinkBundle\Entity\Affectation, NanotechEasylinkAdminBundle:AffectationAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Affectation }
+        public: true
+
+    nanotech_easylink_admin.admin.avis:
+        class: Nanotech\EasylinkAdminBundle\Admin\AvisAdmin
+        arguments: [~, Nanotech\EasylinkBundle\Entity\Avis, NanotechEasylinkAdminBundle:AvisAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Avis }
+        public: true
+
+    nanotech_easylink_admin.admin.message:
+        class: Nanotech\EasylinkAdminBundle\Admin\MessageAdmin
+        arguments: [~, Nanotech\EasylinkBundle\Entity\Message, NanotechEasylinkAdminBundle:MessageAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Message }
+        public: true
+
+    nanotech_easylink_admin.admin.newletter:
+        class: Nanotech\EasylinkAdminBundle\Admin\NewletterAdmin
+        arguments: [~, Nanotech\EasylinkBundle\Entity\Newletter, NanotechEasylinkAdminBundle:NewletterAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Newletter }
+        public: true
+
+    nanotech_easylink_admin.admin.offre:
+        class: Nanotech\EasylinkAdminBundle\Admin\OffreAdmin
+        arguments: [~, Nanotech\EasylinkBundle\Entity\Offre, NanotechEasylinkAdminBundle:OffreAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Offre }
+        public: true
+
+    nanotech_easylink_admin.admin.sous.specialite:
+        class: Nanotech\EasylinkAdminBundle\Admin\Sous_specialiteAdmin
+        arguments: [~, Nanotech\EasylinkBundle\Entity\Sous_specialite, NanotechEasylinkAdminBundle:Sous_specialiteAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Sous_specialite }
+        public: true
+
+    nanotech_easylink_admin.admin.specialite:
+        class: Nanotech\EasylinkAdminBundle\Admin\SpecialiteAdmin
+        arguments: [~, Nanotech\EasylinkBundle\Entity\Specialite, NanotechEasylinkAdminBundle:SpecialiteAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Specialite }
+        public: true
+
+    nanotech_easylink_admin.admin.utilisateur:
+        class: Nanotech\EasylinkAdminBundle\Admin\UtilisateurAdmin
+        arguments: [~, Nanotech\EasylinkBundle\Entity\Utilisateur, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Utilisateur }
+        public: true

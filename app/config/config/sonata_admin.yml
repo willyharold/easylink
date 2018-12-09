@@ -38,7 +38,15 @@ sonata_admin:
                 label_catalogue: EasylinkBundle
                 icon: '<i class="fa fa-home"></i>'
                 items:           
-
+                    - nanotech_easylink_admin.admin.abonnement
+                    - nanotech_easylink_admin.admin.affectation
+                    - nanotech_easylink_admin.admin.avis
+                    - nanotech_easylink_admin.admin.message
+                    - nanotech_easylink_admin.admin.newletter
+                    - nanotech_easylink_admin.admin.offre
+                    - nanotech_easylink_admin.admin.sous.specialite
+                    - nanotech_easylink_admin.admin.specialite
+                    - nanotech_easylink_admin.admin.utilisateur
                     
                      
     security:

@@ -141,7 +141,7 @@ class Offre
     * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Sous_specialite")
     * @ORM\JoinColumn(nullable=false) 
     */
-    private $Sous_specialite; 
+    private $sous_specialite; 
 
 
     /**
@@ -514,13 +514,24 @@ class Offre
         $this->photo3 = $photo3;
     }
 
+    
+    
+
+public function __construct()
+    {
+        $this->dateEn = new \DateTime();
+
+    }
+    
     function getSous_specialite() {
-        return $this->Sous_specialite;
+        return $this->sous_specialite;
     }
 
-    function setSous_specialite($Sous_specialite) {
-        $this->Sous_specialite = $Sous_specialite;
+    function setSous_specialite($sous_specialite) {
+        $this->sous_specialite = $sous_specialite;
     }
+
+
 
 
 

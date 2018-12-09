@@ -138,7 +138,11 @@ class Message
     function setAffectation($affectation) {
         $this->affectation = $affectation;
     }
+public function __construct()
+    {
+        $this->dateEn = new \DateTime();
 
+    }
 
 }
 

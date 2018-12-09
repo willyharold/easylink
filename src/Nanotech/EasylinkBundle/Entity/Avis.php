@@ -184,6 +184,10 @@ class Avis
         $this->utilisateur = $utilisateur;
     }
 
+public function __construct()
+    {
+        $this->dateEn = new \DateTime();
 
+    }
 }
 

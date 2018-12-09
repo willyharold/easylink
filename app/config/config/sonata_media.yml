@@ -45,7 +45,7 @@ sonata_media:
             formats:
                 big:  { width: 300 ,height: 300 , quality: 100}
                 
-        fichier_parution:  
+        photo:  
             providers:
                 - sonata.media.provider.file       
         

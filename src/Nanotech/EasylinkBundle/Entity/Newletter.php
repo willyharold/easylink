@@ -93,5 +93,11 @@ class Newletter
     {
         return $this->dateEn;
     }
+    
+    public function __construct()
+    {
+        $this->dateEn = new \DateTime();
+
+    }
 }
 
