@@ -138,7 +138,7 @@ class Offre
     private  $photo3;
     
      /**
-    * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Sous_specialite")
+    * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\sousSpecialite")
     * @ORM\JoinColumn(nullable=false) 
     */
     private $sous_specialite; 

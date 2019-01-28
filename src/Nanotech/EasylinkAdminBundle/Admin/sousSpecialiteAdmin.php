@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class Sous_specialiteAdmin extends AbstractAdmin
+class sousSpecialiteAdmin extends AbstractAdmin
 {
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
@@ -42,18 +42,18 @@ class Sous_specialiteAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-
             ->add('nom')
             ->add('tarif')
             ->add('deCourte')
             ->add('deLongue')
-            ->add('specialite')
             ->add('photo', 'sonata_media_type', array(
                         'provider' => 'sonata.media.provider.image',
                         'context' => 'photo',
                         'required' => true,
                         'label' => "image",
                     ))
+             ->add('specialite')
+            
         ;
     }
 

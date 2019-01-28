@@ -44,9 +44,9 @@ sonata_admin:
                     - nanotech_easylink_admin.admin.message
                     - nanotech_easylink_admin.admin.newletter
                     - nanotech_easylink_admin.admin.offre
-                    - nanotech_easylink_admin.admin.sous.specialite
                     - nanotech_easylink_admin.admin.specialite
                     - nanotech_easylink_admin.admin.utilisateur
+                    - nanotech_easylink_admin.admin.sous_specialite
                     
                      
     security:

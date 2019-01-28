@@ -5,12 +5,12 @@ namespace Nanotech\EasylinkBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Sous_specialite
+ * sousSpecialite
  *
  * @ORM\Table(name="sous_specialite")
- * @ORM\Entity(repositoryClass="Nanotech\EasylinkBundle\Repository\Sous_specialiteRepository")
+ * @ORM\Entity(repositoryClass="Nanotech\EasylinkBundle\Repository\sousSpecialiteRepository")
  */
-class Sous_specialite
+class sousSpecialite
 {
     /**
      * @var int
@@ -24,31 +24,31 @@ class Sous_specialite
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="text",length=255)
+     * @ORM\Column(name="nom", type="text", nullable=true)
      */
     private $nom;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="tarif", type="float")
+     * @ORM\Column(name="tarif", type="float", nullable=true)
      */
     private $tarif;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="de_courte", type="text", length=255)
+     * @ORM\Column(name="deCourte", type="text", nullable=true)
      */
     private $deCourte;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="de_longue", type="text",length=255)
+     * @ORM\Column(name="deLongue", type="text", nullable=true)
      */
     private $deLongue;
-
+    
      /**
      * @ORM\OneToOne(targetEntity="Nanotech\MediaBundle\Entity\Media", cascade={"all"})
      * @ORM\JoinColumn(nullable=true)
@@ -60,6 +60,8 @@ class Sous_specialite
     * @ORM\JoinColumn(nullable=false) 
     */
     private $specialite; 
+
+
 
     /**
      * Get id
@@ -76,7 +78,7 @@ class Sous_specialite
      *
      * @param string $nom
      *
-     * @return Sous_specialite
+     * @return sousSpecialite
      */
     public function setNom($nom)
     {
@@ -100,7 +102,7 @@ class Sous_specialite
      *
      * @param float $tarif
      *
-     * @return Sous_specialite
+     * @return sousSpecialite
      */
     public function setTarif($tarif)
     {
@@ -124,7 +126,7 @@ class Sous_specialite
      *
      * @param string $deCourte
      *
-     * @return Sous_specialite
+     * @return sousSpecialite
      */
     public function setDeCourte($deCourte)
     {
@@ -148,7 +150,7 @@ class Sous_specialite
      *
      * @param string $deLongue
      *
-     * @return Sous_specialite
+     * @return sousSpecialite
      */
     public function setDeLongue($deLongue)
     {
@@ -166,24 +168,52 @@ class Sous_specialite
     {
         return $this->deLongue;
     }
-    
-    function getPhoto() {
+
+    /**
+     * Set photo
+     *
+     * @param \Nanotech\MediaBundle\Entity\Media $photo
+     *
+     * @return sousSpecialite
+     */
+    public function setPhoto(\Nanotech\MediaBundle\Entity\Media $photo = null)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return \Nanotech\MediaBundle\Entity\Media
+     */
+    public function getPhoto()
+    {
         return $this->photo;
     }
 
-    function setPhoto($photo) {
-        $this->photo = $photo;
+    /**
+     * Set specialite
+     *
+     * @param \Nanotech\EasylinkBundle\Entity\Specialite $specialite
+     *
+     * @return sousSpecialite
+     */
+    public function setSpecialite(\Nanotech\EasylinkBundle\Entity\Specialite $specialite)
+    {
+        $this->specialite = $specialite;
+
+        return $this;
     }
 
-    function getSpecialite() {
+    /**
+     * Get specialite
+     *
+     * @return \Nanotech\EasylinkBundle\Entity\Specialite
+     */
+    public function getSpecialite()
+    {
         return $this->specialite;
     }
-
-    function setSpecialite($specialite) {
-        $this->specialite = $specialite;
-    }
-
-
-
 }
-

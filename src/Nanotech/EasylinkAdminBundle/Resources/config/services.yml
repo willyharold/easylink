@@ -41,13 +41,6 @@ services:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Offre }
         public: true
 
-    nanotech_easylink_admin.admin.sous.specialite:
-        class: Nanotech\EasylinkAdminBundle\Admin\Sous_specialiteAdmin
-        arguments: [~, Nanotech\EasylinkBundle\Entity\Sous_specialite, NanotechEasylinkAdminBundle:Sous_specialiteAdmin]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Sous_specialite }
-        public: true
-
     nanotech_easylink_admin.admin.specialite:
         class: Nanotech\EasylinkAdminBundle\Admin\SpecialiteAdmin
         arguments: [~, Nanotech\EasylinkBundle\Entity\Specialite, NanotechEasylinkAdminBundle:SpecialiteAdmin]
@@ -60,4 +53,11 @@ services:
         arguments: [~, Nanotech\EasylinkBundle\Entity\Utilisateur, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Utilisateur }
+        public: true
+
+    nanotech_easylink_admin.admin.sous_specialite:
+        class: Nanotech\EasylinkAdminBundle\Admin\sousSpecialiteAdmin
+        arguments: [~, Nanotech\EasylinkBundle\Entity\sousSpecialite, NanotechEasylinkAdminBundle:sousSpecialiteAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: sousSpecialite }
         public: true

@@ -93,7 +93,7 @@ class OffreAdmin extends AbstractAdmin
             ->add('note')
             ->add('commentaire')
             ->add('etat')
-                  ->add('sous_specialite')
+                  ->add('sousSpecialite')
            
         ;
     }
