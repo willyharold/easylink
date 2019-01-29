@@ -34,19 +34,30 @@ sonata_admin:
         groups:
             
             app.admin.group.admin:
+                label: "Configuration"
+                label_catalogue: EasylinkBundle
+                icon: '<i class="fa fa-home"></i>'
+                items:
+                    - nanotech_easylink_admin.admin.utilisateur
+
+            app.admin.group.employer:
                 label: "Administration"
                 label_catalogue: EasylinkBundle
                 icon: '<i class="fa fa-home"></i>'
-                items:           
-                    - nanotech_easylink_admin.admin.abonnement
-                    - nanotech_easylink_admin.admin.affectation
-                    - nanotech_easylink_admin.admin.avis
-                    - nanotech_easylink_admin.admin.message
-                    - nanotech_easylink_admin.admin.newletter
-                    - nanotech_easylink_admin.admin.offre
-                    - nanotech_easylink_admin.admin.specialite
-                    - nanotech_easylink_admin.admin.utilisateur
-                    - nanotech_easylink_admin.admin.sous_specialite
+                items:
+                - nanotech_easylink_admin.admin.abonnement
+                - nanotech_easylink_admin.admin.affectation
+                - nanotech_easylink_admin.admin.newletter
+
+            app.admin.group.redacteur:
+                label: "Redacteur"
+                label_catalogue: EasylinkBundle
+                icon: '<i class="fa fa-home"></i>'
+                items:
+                - nanotech_easylink_admin.admin.avis
+                - nanotech_easylink_admin.admin.message
+                - nanotech_easylink_admin.admin.specialite
+                - nanotech_easylink_admin.admin.sous_specialite
                     
                      
     security:
