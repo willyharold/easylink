@@ -10,4 +10,12 @@ class DefaultController extends Controller
     {
         return $this->render('NanotechEasylinkBundle:Default:index.html.twig');
     }
+
+    public function menuAction(){
+        return $this->render('NanotechEasylinkBundle:Default:menu.html.twig');
+    }
+
+    public function footerAction(){
+        return $this->render('NanotechEasylinkBundle:Default:footer.html.twig');
+    }
 }
