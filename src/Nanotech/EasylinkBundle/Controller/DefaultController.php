@@ -17,5 +17,10 @@ class DefaultController extends Controller
 
     public function footerAction(){
         return $this->render('NanotechEasylinkBundle:Default:footer.html.twig');
+
+    }
+
+    public function annonceAction(){
+        return $this->render('NanotechEasylinkBundle:Default:annonce.html.twig');
     }
 }

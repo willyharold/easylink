@@ -1,3 +1,7 @@
 nanotech_easylink_homepage:
     path:     /
     defaults: { _controller: NanotechEasylinkBundle:Default:index }
+
+nanotech_easylink_annonce:
+    path:     /annonce
+    defaults: { _controller: NanotechEasylinkBundle:Default:annonce }
