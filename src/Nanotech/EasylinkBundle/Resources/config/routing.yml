@@ -5,3 +5,11 @@ nanotech_easylink_homepage:
 nanotech_easylink_annonce:
     path:     /annonce
     defaults: { _controller: NanotechEasylinkBundle:Default:annonce }
+
+nanotech_easylink_contact:
+    path:   /contact
+    defaults: { _controller: NanotechEasylinkBundle:Default:contact}
+
+nanotech_easylink_about:
+    path:   /about
+    defaults: { _controller: NanotechEasylinkBundle:Default:about}

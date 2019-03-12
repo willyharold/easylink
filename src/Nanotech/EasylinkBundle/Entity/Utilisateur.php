@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="Nanotech\EasylinkBundle\Repository\UtilisateurRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Utilisateur extends BaseUser
 {
@@ -34,21 +35,21 @@ class Utilisateur extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255, )
+     * @ORM\Column(name="prenom", type="string", length=255,nullable= true )
      */
     private $prenom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sexe", type="string", length=255)
+     * @ORM\Column(name="sexe", type="string", length=255, nullable= true)
      */
     private $sexe;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateNaissance", type="date")
+     * @ORM\Column(name="dateNaissance", type="date", nullable=true)
      */
     private $dateNaissance;
 
@@ -72,16 +73,10 @@ class Utilisateur extends BaseUser
 
     protected $username;
 
-     /**
-     * @var string
-     *
-     * @ORM\Column(name="abonnement", type="string", length=255)
-     */
-    private $abonnement;
     
      /**
     * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Specialite")
-    * @ORM\JoinColumn(nullable=false) 
+    * @ORM\JoinColumn(nullable=true)
     */
     private $specialite; 
     
@@ -100,22 +95,19 @@ class Utilisateur extends BaseUser
     private $codePostale;
     
      /**
-     * @var text
+     * @var string
      *
      * @ORM\Column(name="adresse", type="string",length=255)
      */
     private $adresse;
 
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
+    public function __construct()
     {
-        return $this->id;
+        $this->dateEnreg = new \DateTime();
+
     }
+
 
     /**
      * Set nom
@@ -230,7 +222,7 @@ class Utilisateur extends BaseUser
     /**
      * Get telephone
      *
-     * @return int
+     * @return integer
      */
     public function getTelephone()
     {
@@ -260,75 +252,101 @@ class Utilisateur extends BaseUser
     {
         return $this->dateEnreg;
     }
-    
-    function getEmail() {
-        return $this->email;
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     *
+     * @return Utilisateur
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
     }
 
-    function getPassword() {
-        return $this->password;
-    }
-
-    function getUsername() {
-        return $this->username;
-    }
-
-    function getAbonnement() {
-        return $this->abonnement;
-    }
-
-    function getSpecialite() {
-        return $this->specialite;
-    }
-
-    function getVille() {
+    /**
+     * Get ville
+     *
+     * @return string
+     */
+    public function getVille()
+    {
         return $this->ville;
     }
 
-    function getCodePostale() {
+    /**
+     * Set codePostale
+     *
+     * @param integer $codePostale
+     *
+     * @return Utilisateur
+     */
+    public function setCodePostale($codePostale)
+    {
+        $this->codePostale = $codePostale;
+
+        return $this;
+    }
+
+    /**
+     * Get codePostale
+     *
+     * @return integer
+     */
+    public function getCodePostale()
+    {
         return $this->codePostale;
     }
 
-    function getAdresse() {
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return Utilisateur
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
         return $this->adresse;
     }
 
-    function setEmail($email) {
-        $this->email = $email;
-    }
-
-    function setPassword($password) {
-        $this->password = $password;
-    }
-
-    function setUsername($username) {
-        $this->username = $username;
-    }
-
-    function setAbonnement($abonnement) {
-        $this->abonnement = $abonnement;
-    }
-
-    function setSpecialite($specialite) {
-        $this->specialite = $specialite;
-    }
-
-    function setVille($ville) {
-        $this->ville = $ville;
-    }
-
-    function setCodePostale($codePostale) {
-        $this->codePostale = $codePostale;
-    }
-
-    function setAdresse(text $adresse) {
-        $this->adresse = $adresse;
-    }
-
-    public function __construct()
+    /**
+     * Set specialite
+     *
+     * @param \Nanotech\EasylinkBundle\Entity\Specialite $specialite
+     *
+     * @return Utilisateur
+     */
+    public function setSpecialite(\Nanotech\EasylinkBundle\Entity\Specialite $specialite)
     {
-        $this->dateEn = new \DateTime();
+        $this->specialite = $specialite;
 
+        return $this;
+    }
+
+    /**
+     * Get specialite
+     *
+     * @return \Nanotech\EasylinkBundle\Entity\Specialite
+     */
+    public function getSpecialite()
+    {
+        return $this->specialite;
     }
 
 }

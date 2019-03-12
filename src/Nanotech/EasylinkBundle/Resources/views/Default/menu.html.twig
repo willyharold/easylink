@@ -49,11 +49,9 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right navbar-links-custom">
                             <li class="dropdown">
-                                <a href="{{ path('nanotech_easylink_annonce') }}">Accueil</a>
+                                <a href="{{ path('nanotech_easylink_homepage') }}">Accueil</a>
                             </li>
-                            <li class="dropdown">
-                                <a href="#">Trouver un pro</a>
-                            </li>
+
                             <li class="dropdown">
                                 <a href="#">Astuces & conseils</a>
                             </li>
@@ -62,15 +60,14 @@
                             </li>
 
                             <li class="dropdown">
-                                <a href="#">Partenaires</a>
+                                <a href="{{ path('nanotech_easylink_about') }}">A propos</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="{{ path('nanotech_easylink_contact') }}">Contact</a>
                             </li>
 
                             <li class="dropdown">
-                                <a href="#">A propos</a>
-                            </li>
-
-                            <li class="dropdown">
-                                <a href="#">Connexion</a>
+                                <a href="{{ path('fos_user_security_login') }}">Connexion</a>
                             </li>
                         </ul>
                     </div>

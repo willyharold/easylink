@@ -23,4 +23,12 @@ class DefaultController extends Controller
     public function annonceAction(){
         return $this->render('NanotechEasylinkBundle:Default:annonce.html.twig');
     }
+
+    public function contactAction(){
+        return $this->render('NanotechEasylinkBundle:Default:contact.html.twig');
+    }
+
+    public function aboutAction(){
+        return $this->render('NanotechEasylinkBundle:Default:about.html.twig');
+    }
 }
