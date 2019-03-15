@@ -18,11 +18,9 @@ class UtilisateurType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')
-            ->add('sexe')
+        $builder
             ->add('telephone')
-            ->add('ville')
-            ->add('adresse')
+
             ->add('email')
             ->add('username')
             ->add('plainPassword', RepeatedType::class, array(
@@ -32,8 +30,7 @@ class UtilisateurType extends AbstractType
                 'required' => true,
                 'first_options'  => array('label' => 'Mot de passe'),
                 'second_options' => array('label' => 'Repeter le mot de passe'),
-            ))
-            ->add('codePostale');
+            ));
 
     }
 

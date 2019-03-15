@@ -38,7 +38,7 @@ class Affectation
     * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Utilisateur")
     * @ORM\JoinColumn(nullable=false) 
     */
-    private $utilisateur;
+    private $client;
 
     /**
      * Get id

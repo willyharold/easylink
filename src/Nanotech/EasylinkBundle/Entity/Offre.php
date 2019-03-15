@@ -24,30 +24,11 @@ class Offre
     /**
      * @var string
      *
-     * @ORM\Column(name="objet", type="text",length=255)
-     */
-    private $objet;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="description", type="text", length=255)
      */
     private $description;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="type", type="string", length=255)
-     */
-    private $type;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="de_travaux", type="string", length=255)
-     */
-    private $deTravaux;
 
     /**
      * @var string
@@ -56,61 +37,14 @@ class Offre
      */
     private $adresse;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="adressecom", type="text", length=255)
-     */
-    private $adressecom;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ville", type="text", length=255)
-     */
-    private $ville;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="code_postale", type="integer", unique=true)
+     * @ORM\Column(name="code_postale", type="integer")
      */
     private $codePostale;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="telephone", type="integer", unique=true)
-     */
-    private $telephone;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="paiement", type="string", length=255 )
-     */
-    private $paiement;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="note", type="integer")
-     */
-    private $note;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="commentaire", type="text")
-     */
-    private $commentaire;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="etat", type="string", length=255)
-     */
-    private $etat;
 
     /**
      * @var \DateTime
@@ -120,29 +54,29 @@ class Offre
     private $dateEn;
 
      /**
-     * @ORM\OneToOne(targetEntity="Nanotech\MediaBundle\Entity\Media", cascade={"all"})
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private  $photo1;
-    
-     /**
-     * @ORM\OneToOne(targetEntity="Nanotech\MediaBundle\Entity\Media", cascade={"all"})
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private  $photo2;
-    
-     /**
-     * @ORM\OneToOne(targetEntity="Nanotech\MediaBundle\Entity\Media", cascade={"all"})
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private  $photo3;
-    
-     /**
     * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\sousSpecialite")
     * @ORM\JoinColumn(nullable=false) 
     */
-    private $sous_specialite; 
+    private $sous_specialite;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Utilisateur")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $client;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Utilisateur")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $artisan;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etat", type="string", length=255)
+     */
+    private $etat;
 
     /**
      * Get id
