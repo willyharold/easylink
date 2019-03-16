@@ -151,6 +151,9 @@ fos_user:
     registration:
         form:
             type: Nanotech\EasylinkBundle\Form\UtilisateurType
+        confirmation:
+            template:   '@FOSUser/Registration/email.txt.twig'
+            enabled: true
 fos_oauth_server:
     db_driver:           orm
     client_class:        Nanotech\EasylinkBundle\Entity\Client

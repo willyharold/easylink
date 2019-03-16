@@ -78,38 +78,29 @@ class Offre
      */
     private $etat;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="Nanotech\EasylinkBundle\Entity\ImageOffre", mappedBy="offre")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $imageOffre;
+
+public function __construct()
+    {
+        $this->dateEn = new \DateTime();
+
+    }
+
+
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set objet
-     *
-     * @param string $objet
-     *
-     * @return Offre
-     */
-    public function setObjet($objet)
-    {
-        $this->objet = $objet;
-
-        return $this;
-    }
-
-    /**
-     * Get objet
-     *
-     * @return string
-     */
-    public function getObjet()
-    {
-        return $this->objet;
     }
 
     /**
@@ -137,54 +128,6 @@ class Offre
     }
 
     /**
-     * Set type
-     *
-     * @param string $type
-     *
-     * @return Offre
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * Set deTravaux
-     *
-     * @param string $deTravaux
-     *
-     * @return Offre
-     */
-    public function setDeTravaux($deTravaux)
-    {
-        $this->deTravaux = $deTravaux;
-
-        return $this;
-    }
-
-    /**
-     * Get deTravaux
-     *
-     * @return string
-     */
-    public function getDeTravaux()
-    {
-        return $this->deTravaux;
-    }
-
-    /**
      * Set adresse
      *
      * @param string $adresse
@@ -209,54 +152,6 @@ class Offre
     }
 
     /**
-     * Set adressecom
-     *
-     * @param string $adressecom
-     *
-     * @return Offre
-     */
-    public function setAdressecom($adressecom)
-    {
-        $this->adressecom = $adressecom;
-
-        return $this;
-    }
-
-    /**
-     * Get adressecom
-     *
-     * @return string
-     */
-    public function getAdressecom()
-    {
-        return $this->adressecom;
-    }
-
-    /**
-     * Set ville
-     *
-     * @param string $ville
-     *
-     * @return Offre
-     */
-    public function setVille($ville)
-    {
-        $this->ville = $ville;
-
-        return $this;
-    }
-
-    /**
-     * Get ville
-     *
-     * @return string
-     */
-    public function getVille()
-    {
-        return $this->ville;
-    }
-
-    /**
      * Set codePostale
      *
      * @param integer $codePostale
@@ -273,7 +168,7 @@ class Offre
     /**
      * Get codePostale
      *
-     * @return int
+     * @return integer
      */
     public function getCodePostale()
     {
@@ -281,99 +176,27 @@ class Offre
     }
 
     /**
-     * Set telephone
+     * Set dateEn
      *
-     * @param integer $telephone
+     * @param \DateTime $dateEn
      *
      * @return Offre
      */
-    public function setTelephone($telephone)
+    public function setDateEn($dateEn)
     {
-        $this->telephone = $telephone;
+        $this->dateEn = $dateEn;
 
         return $this;
     }
 
     /**
-     * Get telephone
+     * Get dateEn
      *
-     * @return int
+     * @return \DateTime
      */
-    public function getTelephone()
+    public function getDateEn()
     {
-        return $this->telephone;
-    }
-
-    /**
-     * Set paiement
-     *
-     * @param string $paiement
-     *
-     * @return Offre
-     */
-    public function setPaiement($paiement)
-    {
-        $this->paiement = $paiement;
-
-        return $this;
-    }
-
-    /**
-     * Get paiement
-     *
-     * @return string
-     */
-    public function getPaiement()
-    {
-        return $this->paiement;
-    }
-
-    /**
-     * Set note
-     *
-     * @param integer $note
-     *
-     * @return Offre
-     */
-    public function setNote($note)
-    {
-        $this->note = $note;
-
-        return $this;
-    }
-
-    /**
-     * Get note
-     *
-     * @return int
-     */
-    public function getNote()
-    {
-        return $this->note;
-    }
-
-    /**
-     * Set commentaire
-     *
-     * @param string $commentaire
-     *
-     * @return Offre
-     */
-    public function setCommentaire($commentaire)
-    {
-        $this->commentaire = $commentaire;
-
-        return $this;
-    }
-
-    /**
-     * Get commentaire
-     *
-     * @return string
-     */
-    public function getCommentaire()
-    {
-        return $this->commentaire;
+        return $this->dateEn;
     }
 
     /**
@@ -401,73 +224,108 @@ class Offre
     }
 
     /**
-     * Set dateEn
+     * Set sousSpecialite
      *
-     * @param \DateTime $dateEn
+     * @param \Nanotech\EasylinkBundle\Entity\sousSpecialite $sousSpecialite
      *
      * @return Offre
      */
-    public function setDateEn($dateEn)
+    public function setSousSpecialite(\Nanotech\EasylinkBundle\Entity\sousSpecialite $sousSpecialite)
     {
-        $this->dateEn = $dateEn;
+        $this->sous_specialite = $sousSpecialite;
 
         return $this;
     }
 
     /**
-     * Get dateEn
+     * Get sousSpecialite
      *
-     * @return \DateTime
+     * @return \Nanotech\EasylinkBundle\Entity\sousSpecialite
      */
-    public function getDateEn()
+    public function getSousSpecialite()
     {
-        return $this->dateEn;
-    }
-    
-    function getPhoto1() {
-        return $this->photo1;
-    }
-
-    function getPhoto2() {
-        return $this->photo2;
-    }
-
-    function getPhoto3() {
-        return $this->photo3;
-    }
-
-    function setPhoto1($photo1) {
-        $this->photo1 = $photo1;
-    }
-
-    function setPhoto2($photo2) {
-        $this->photo2 = $photo2;
-    }
-
-    function setPhoto3($photo3) {
-        $this->photo3 = $photo3;
-    }
-
-    
-    
-
-public function __construct()
-    {
-        $this->dateEn = new \DateTime();
-
-    }
-    
-    function getSous_specialite() {
         return $this->sous_specialite;
     }
 
-    function setSous_specialite($sous_specialite) {
-        $this->sous_specialite = $sous_specialite;
+    /**
+     * Set client
+     *
+     * @param \Nanotech\EasylinkBundle\Entity\Utilisateur $client
+     *
+     * @return Offre
+     */
+    public function setClient(\Nanotech\EasylinkBundle\Entity\Utilisateur $client = null)
+    {
+        $this->client = $client;
+
+        return $this;
     }
 
+    /**
+     * Get client
+     *
+     * @return \Nanotech\EasylinkBundle\Entity\Utilisateur
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
 
+    /**
+     * Set artisan
+     *
+     * @param \Nanotech\EasylinkBundle\Entity\Utilisateur $artisan
+     *
+     * @return Offre
+     */
+    public function setArtisan(\Nanotech\EasylinkBundle\Entity\Utilisateur $artisan = null)
+    {
+        $this->artisan = $artisan;
 
+        return $this;
+    }
 
+    /**
+     * Get artisan
+     *
+     * @return \Nanotech\EasylinkBundle\Entity\Utilisateur
+     */
+    public function getArtisan()
+    {
+        return $this->artisan;
+    }
 
+    /**
+     * Add imageOffre
+     *
+     * @param \Nanotech\EasylinkBundle\Entity\ImageOffre $imageOffre
+     *
+     * @return Offre
+     */
+    public function addImageOffre(\Nanotech\EasylinkBundle\Entity\ImageOffre $imageOffre)
+    {
+        $this->imageOffre[] = $imageOffre;
+
+        return $this;
+    }
+
+    /**
+     * Remove imageOffre
+     *
+     * @param \Nanotech\EasylinkBundle\Entity\ImageOffre $imageOffre
+     */
+    public function removeImageOffre(\Nanotech\EasylinkBundle\Entity\ImageOffre $imageOffre)
+    {
+        $this->imageOffre->removeElement($imageOffre);
+    }
+
+    /**
+     * Get imageOffre
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImageOffre()
+    {
+        return $this->imageOffre;
+    }
 }
-

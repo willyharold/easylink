@@ -25,7 +25,7 @@ sonata_admin:
     
     
     
-    title: CAN Easylink
+    title: Easylink
     title_logo: img/logo1.svg
     templates: 
         layout: NanotechEasylinkAdminBundle::standard_layout.html.twig
@@ -48,6 +48,8 @@ sonata_admin:
                 - nanotech_easylink_admin.admin.abonnement
                 - nanotech_easylink_admin.admin.affectation
                 - nanotech_easylink_admin.admin.newletter
+                - nanotech_easylink_admin.admin.offre
+                - nanotech_easylink_admin.admin.image_offre
 
             app.admin.group.redacteur:
                 label: "Redacteur"
@@ -58,11 +60,5 @@ sonata_admin:
                 - nanotech_easylink_admin.admin.message
                 - nanotech_easylink_admin.admin.specialite
                 - nanotech_easylink_admin.admin.sous_specialite
-                    
-                     
-    security:
-        handler: sonata.admin.security.handler.role
 
-        role_admin: ROLE_ADMIN
-        role_super_admin: ROLE_SUPER_ADMIN
         

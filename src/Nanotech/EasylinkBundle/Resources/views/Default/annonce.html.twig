@@ -37,29 +37,31 @@
                     </div>
                     <div class="contact-form-box mt-30">
                         <!-- Form START -->
-                        <form class="contact-form">
+                        <form class="contact-form" method="post" action="{{ path('nanotech_easylink_anoncepost') }}">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <select id="pet-select">
-                                        <option value="">Choisissez une catégorie de travaux</option>
-                                        <option value="dog">Dog</option>
+                                    <select id="form-specialite" name="form-specialite" required onchange="updatesous()" >
+                                        <option value="0" >Sélectionnez une catégorie</option>
+                                        {% for categorie in categories  %}
+                                            <option value="{{ categorie.id }}">{{ categorie.nom }}</option>
+                                        {% endfor %}
+
                                     </select>
                                 </div>
                                 <div class="col-md-12">
-                                    <select id="pet-select">
+                                    <select id="form-sousspecialite" name="form-sousspecialite" required >
                                         <option value="">Type de travaux</option>
-                                        <option value="dog">Dog</option>
                                     </select>
                                 </div>
 
                                 <div class="col-md-12">
-                                    <textarea name="message" placeholder="Description detaillé des travaux requis"></textarea>
+                                    <textarea name="form-message" required placeholder="Description detaillé des travaux requis"></textarea>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="name" placeholder="Adresse">
+                                    <input type="text" name="form-adresse" required placeholder="Adresse">
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="number" name="email" placeholder="Code postal">
+                                    <input type="number" name="form-poste" required placeholder="Code postal">
                                 </div>
 
                                 <div class="col-md-12 mb-30">
@@ -93,4 +95,35 @@
     <a href="#" class="scroll-to-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
     <!-- Scroll to top button End -->
 
+{% endblock %}
+{% block script %}
+<script>
+    function updatesous(){
+        var id = $('#form-specialite').val();
+
+        $.ajax({
+            async: true,
+            url: "/easylink/web/sousspecialite/"+id,
+            method: "GET"
+           ,
+            success:function(data){
+                var element = document.getElementById("form-sousspecialite");
+                while (element.firstChild) {
+                    element.removeChild(element.firstChild);
+                }
+                $('#form-sousspecialite').append(data);
+
+            },
+            error:function (er) {
+
+                var element = document.getElementById("form-sousspecialite");
+                while (element.firstChild) {
+                    element.removeChild(element.firstChild);
+                }
+            }
+
+        });
+
+    }
+</script>
 {% endblock %}

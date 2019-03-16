@@ -28,7 +28,7 @@ class Utilisateur extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255, nullable= true)
      */
     private $nom;
 
@@ -56,14 +56,14 @@ class Utilisateur extends BaseUser
     /**
      * @var int
      *
-     * @ORM\Column(name="telephone", type="integer")
+     * @ORM\Column(name="telephone", type="integer",nullable=true)
      */
     private $telephone;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateEnreg", type="datetime")
+     * @ORM\Column(name="dateEnreg", type="datetime",nullable=true)
      */
     private $dateEnreg;
     
@@ -83,23 +83,25 @@ class Utilisateur extends BaseUser
      /**
      * @var string
      *
-     * @ORM\Column(name="ville", type="string", length=255, length=255)
+     * @ORM\Column(name="ville", type="string", length=255, length=255,nullable=true)
      */
     private $ville;
     
      /**
      * @var int
      *
-     * @ORM\Column(name="code_postale", type="integer", )
+     * @ORM\Column(name="code_postale", type="integer",nullable=true )
      */
     private $codePostale;
     
      /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="string",length=255)
+     * @ORM\Column(name="adresse", type="string",length=255,nullable=true)
      */
     private $adresse;
+
+
 
 
     public function __construct()

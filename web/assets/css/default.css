@@ -403,4 +403,6 @@ li{
 .clearfix { display: block; }
 /* close commented backslash hack */
 
-
+.colorbor{
+  border-color: #ebccd1 !important;
+}

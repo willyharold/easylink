@@ -334,3 +334,22 @@
     <!-- Scroll to top button End -->
 
 {% endblock %}
+
+{% block script %}
+<script>
+    toastr.options.showMethod = 'slideDown';
+    toastr.options.hideMethod = 'slideUp';
+    toastr.options.closeMethod = 'slideUp';
+    toastr.options.positionClass = 'toast-top-full-width';
+    toastr.options.progressBar = true
+    toastr.options.closeButton = true;
+    toastr.options.timeOut = 30000;
+    toastr.options.extendedTimeOut = 6000;
+    {% for flashMessage in app.session.flashbag.get('confirmer') %}
+
+         toastr.success('{{ flashMessage }}')
+
+    {% endfor %}
+
+</script>
+{% endblock %}

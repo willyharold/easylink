@@ -2,3 +2,15 @@ services:
 #    nanotech_canhebergement.example:
 #        class: Nanotech\CanhebergementBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+  easylink.event.register_completed:
+    class: Nanotech\EasylinkBundle\Event\RegisterListener
+    arguments: ["@doctrine.orm.default_entity_manager", "@router","@translator"]
+    tags:
+      - { name: kernel.event_listener, event: fos_user.registration.completed, method: overrideUserAnnonce }
+
+  easylink.event.register_confirmed:
+    class: Nanotech\EasylinkBundle\Event\RegisterListener
+    arguments: ["@doctrine.orm.default_entity_manager","@router","@translator"]
+    tags:
+        - { name: kernel.event_listener, event: fos_user.registration.success , method: redirecttohome, priority: -10 }

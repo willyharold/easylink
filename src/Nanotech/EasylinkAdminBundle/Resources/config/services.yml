@@ -61,3 +61,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: sousSpecialite }
         public: true
+
+    nanotech_easylink_admin.admin.image_offre:
+        class: Nanotech\EasylinkAdminBundle\Admin\ImageOffreAdmin
+        arguments: [~, Nanotech\EasylinkBundle\Entity\ImageOffre, NanotechEasylinkAdminBundle:ImageOffreAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: ImageOffre }
+        public: true

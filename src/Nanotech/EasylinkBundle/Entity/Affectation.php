@@ -96,5 +96,28 @@ class Affectation
 
     }
 
-}
 
+    /**
+     * Set client
+     *
+     * @param \Nanotech\EasylinkBundle\Entity\Utilisateur $client
+     *
+     * @return Affectation
+     */
+    public function setClient(\Nanotech\EasylinkBundle\Entity\Utilisateur $client)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return \Nanotech\EasylinkBundle\Entity\Utilisateur
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+}

@@ -17,30 +17,32 @@
                     <h4>Inscrivez-vous</h4>
                     <div class="section-heading-line-left"></div>
                 </div>
-                <div class=" alert alert-info" role="alert">
-                    Veillez terminer votre inscription pour gerer vos annonces
-                </div>
+                {% if app.session.get('offre') %}
+                    <div class=" alert alert-info" role="alert">
+                        Veillez terminer votre inscription pour gerer vos annonces
+                    </div>
+                {% endif %}
+
 
                 <div class="contact-form-box mt-30">
                     <!-- Form START -->
                     <div class="row">
 
                     {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'contact-form'}}) }}
-                        {% if form_errors(form) %}
-                            <div class="col-md-12 alert alert-danger" role="alert">
-                                {{ form_errors(form) }}
-                            </div>
-                        {% endif %}
+
+
                         <div class="col-md-12">
                             {% if form_errors(form.username) %}
-                                {{ form_widget(form.username, {'attr': {'class': '','placeholder':'pseudo'}}) }}
+                                {{ form_widget(form.username, {'attr': {'class': 'colorbor','placeholder':'pseudo'}}) }}
+                                {{ form_errors(form.username) }}
                             {% else %}
                                 {{ form_widget(form.username, {'attr': {'class': '','placeholder':'pseudo'}}) }}
                             {% endif %}
                         </div>
                         <div class="col-md-12">
                             {% if form_errors(form.email) %}
-                                {{ form_widget(form.email, {'attr': {'class': '','placeholder':'email'}}) }}
+                                {{ form_widget(form.email, {'attr': {'class': 'colorbor','placeholder':'email'}}) }}
+                                {{ form_errors(form.email) }}
                             {% else %}
                                 {{ form_widget(form.email, {'attr': {'class': '','placeholder':'email'}}) }}
                             {% endif %}
