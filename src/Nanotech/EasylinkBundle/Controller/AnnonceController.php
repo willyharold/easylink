@@ -14,7 +14,7 @@ class AnnonceController extends Controller
     public function annonceAction(){
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('NanotechEasylinkBundle:Specialite')->findAll();
-        dump($categories);
+        //dump($categories);
         $session = new Session();
         $session->remove("offre");
 
