@@ -22,3 +22,7 @@ nanotech_easylink_anoncepost:
     path:   /anoncepost
     defaults: { _controller: NanotechEasylinkBundle:Annonce:postformannonce}
     methods: POST
+
+nanotech_easylink_blog:
+    path:   /blog
+    defaults: { _controller: NanotechEasylinkBundle:Blog:index}
