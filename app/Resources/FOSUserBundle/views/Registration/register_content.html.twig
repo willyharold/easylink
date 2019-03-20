@@ -25,10 +25,10 @@
 
 
                 <div class="contact-form-box mt-30">
+                    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'contact-form'}}) }}
+
                     <!-- Form START -->
                     <div class="row">
-
-                    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'contact-form'}}) }}
 
 
                         <div class="col-md-12">
@@ -47,6 +47,11 @@
                                 {{ form_widget(form.email, {'attr': {'class': '','placeholder':'email'}}) }}
                             {% endif %}
                         </div>
+
+                        <div class="col-md-12">
+                            {{ form_widget(form.telephone, {'attr': {'class': '','placeholder':'téléphone'}}) }}
+
+                        </div>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {{ form_widget(form.plainPassword.first, {'attr': {'class': '','placeholder':'Mot de passe'}}) }}
 
@@ -56,11 +61,9 @@
 
                         </div>
 
+                    </div>
 
-                        <div class="col-md-12">
-                            {{ form_widget(form.telephone, {'attr': {'class': '','placeholder':'téléphone'}}) }}
 
-                        </div>
 
                     <div class="col-md-12 mb-30">
                         <div class="center-holder">
@@ -68,7 +71,6 @@
                         </div>
                     </div>
                     {{ form_end(form) }}
-                    </div>
 
                     <!-- Form END -->
 
