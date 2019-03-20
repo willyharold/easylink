@@ -1,0 +1,67 @@
+{% extends '::template.html.twig' %}
+{% block body %}
+
+
+
+    <!-- Preloader Start-->
+    <div id="preloader">
+        <div class="row loader">
+            <div class="loader-icon"></div>
+        </div>
+    </div>
+    <!-- Preloader End ici qu'il faut rajouter le menu -->
+
+    {{ render(controller('NanotechEasylinkBundle:Default:menu')) }}
+
+
+
+    <!-- Contact Section START -->
+    <div class="section-block">
+        <div class="container">
+            <div class="row">
+                <!-- Left Side START -->
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <div class="services-single-left-box">
+
+                        <!-- Vertical Menu START -->
+                        <div class="services-single-left-heading">
+                            <h4>Mon Menu</h4>
+                        </div>
+                        <div class="services-single-menu mt-30">
+                            <ul>
+                                <li class="services-active"><a href="#">Tableau de bord</a></li>
+                                <li><a href="#">Mes annonces <span class="badge " style="float: right; margin-right: 5px; background-color: #0a74a7 ">9</span></a> </li>
+                                <li><a href="#">Mes estimations <span class="badge " style="float: right; margin-right: 5px; background-color: #0a74a7 ">9</span></a></li>
+                                <li><a href="#">Mes avis <span class="badge " style="float: right; margin-right: 5px; background-color: #0a74a7 ">9</span></a></li>
+                                <li><a href="#">Mes informations</a></li>
+                                <li><a href="#">Déconnexion</a></li>
+
+                            </ul>
+                        </div>
+                        <!-- Vertical Menu END -->
+
+                    </div>
+                </div>
+                <!-- Left Side END -->
+
+                <!-- Right Side START -->
+                <div class="col-md-9 col-sm-8 col-xs-12">
+                </div>
+                <!-- Right Side END -->
+            </div>
+        </div>
+    </div>
+    <!-- Contact Section END -->
+
+
+    {{ render(controller('NanotechEasylinkBundle:Default:footer')) }}
+
+
+    <!-- Scroll to top button Start -->
+    <a href="#" class="scroll-to-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+    <!-- Scroll to top button End -->
+
+{% endblock %}
+{% block script %}
+
+{% endblock %}

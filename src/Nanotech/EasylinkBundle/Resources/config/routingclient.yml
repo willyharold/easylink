@@ -1,0 +1,3 @@
+nanotech_easylink_client_index:
+    path:     /
+    defaults: { _controller: NanotechEasylinkBundle:Client:index }
