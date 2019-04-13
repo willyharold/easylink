@@ -29,7 +29,7 @@ class Affectation
     private $dateEn;
 
      /**
-    * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Offre")
+    * @ORM\OneToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Offre")
     * @ORM\JoinColumn(nullable=false) 
     */
     private $offre;
@@ -38,12 +38,32 @@ class Affectation
     * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Utilisateur")
     * @ORM\JoinColumn(nullable=false) 
     */
-    private $client;
+    private $artisan1;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Utilisateur")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $artisan2;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Utilisateur")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $artisan3;
+
+
+    public function __construct()
+    {
+        $this->dateEn = new \DateTime();
+
+    }
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -73,51 +93,102 @@ class Affectation
     {
         return $this->dateEn;
     }
-    
-    function getOffre() {
-        return $this->offre;
-    }
-
-    function getUtilisateur() {
-        return $this->utilisateur;
-    }
-
-    function setOffre($offre) {
-        $this->offre = $offre;
-    }
-
-    function setUtilisateur($utilisateur) {
-        $this->utilisateur = $utilisateur;
-    }
-
-    public function __construct()
-    {
-        $this->dateEn = new \DateTime();
-
-    }
-
 
     /**
-     * Set client
+     * Set offre
      *
-     * @param \Nanotech\EasylinkBundle\Entity\Utilisateur $client
+     * @param \Nanotech\EasylinkBundle\Entity\Offre $offre
      *
      * @return Affectation
      */
-    public function setClient(\Nanotech\EasylinkBundle\Entity\Utilisateur $client)
+    public function setOffre(\Nanotech\EasylinkBundle\Entity\Offre $offre)
     {
-        $this->client = $client;
+        $this->offre = $offre;
 
         return $this;
     }
 
     /**
-     * Get client
+     * Get offre
+     *
+     * @return \Nanotech\EasylinkBundle\Entity\Offre
+     */
+    public function getOffre()
+    {
+        return $this->offre;
+    }
+
+
+
+    /**
+     * Set artisan1
+     *
+     * @param \Nanotech\EasylinkBundle\Entity\Utilisateur $artisan1
+     *
+     * @return Affectation
+     */
+    public function setArtisan1(\Nanotech\EasylinkBundle\Entity\Utilisateur $artisan1)
+    {
+        $this->artisan1 = $artisan1;
+
+        return $this;
+    }
+
+    /**
+     * Get artisan1
      *
      * @return \Nanotech\EasylinkBundle\Entity\Utilisateur
      */
-    public function getClient()
+    public function getArtisan1()
     {
-        return $this->client;
+        return $this->artisan1;
+    }
+
+    /**
+     * Set artisan2
+     *
+     * @param \Nanotech\EasylinkBundle\Entity\Utilisateur $artisan2
+     *
+     * @return Affectation
+     */
+    public function setArtisan2(\Nanotech\EasylinkBundle\Entity\Utilisateur $artisan2)
+    {
+        $this->artisan2 = $artisan2;
+
+        return $this;
+    }
+
+    /**
+     * Get artisan2
+     *
+     * @return \Nanotech\EasylinkBundle\Entity\Utilisateur
+     */
+    public function getArtisan2()
+    {
+        return $this->artisan2;
+    }
+
+    /**
+     * Set artisan3
+     *
+     * @param \Nanotech\EasylinkBundle\Entity\Utilisateur $artisan3
+     *
+     * @return Affectation
+     */
+    public function setArtisan3(\Nanotech\EasylinkBundle\Entity\Utilisateur $artisan3)
+    {
+        $this->artisan3 = $artisan3;
+
+        return $this;
+    }
+
+    /**
+     * Get artisan3
+     *
+     * @return \Nanotech\EasylinkBundle\Entity\Utilisateur
+     */
+    public function getArtisan3()
+    {
+        return $this->artisan3;
     }
 }

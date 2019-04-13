@@ -328,4 +328,11 @@ public function __construct()
     {
         return $this->imageOffre;
     }
+
+    public function __toString()
+    {
+        return "".$this->getId()." - ".$this->getSousSpecialite();
+    }
+
+
 }

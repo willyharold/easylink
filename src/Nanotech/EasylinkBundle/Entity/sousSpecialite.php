@@ -216,4 +216,11 @@ class sousSpecialite
     {
         return $this->specialite;
     }
+
+    public function __toString()
+    {
+        return "".$this->getNom();
+    }
+
+
 }

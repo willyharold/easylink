@@ -29,12 +29,12 @@
                         </div>
                         <div class="services-single-menu mt-30">
                             <ul>
-                                <li class="services-active"><a href="#">Tableau de bord</a></li>
-                                <li><a href="#">Mes annonces <span class="badge " style="float: right; margin-right: 5px; background-color: #0a74a7 ">9</span></a> </li>
-                                <li><a href="#">Mes estimations <span class="badge " style="float: right; margin-right: 5px; background-color: #0a74a7 ">9</span></a></li>
-                                <li><a href="#">Mes avis <span class="badge " style="float: right; margin-right: 5px; background-color: #0a74a7 ">9</span></a></li>
+                                <li class="services-active"><a href="{{ path('nanotech_easylink_client_index') }}">Tableau de bord</a></li>
+                                <li><a href="{{ path('nanotech_easylink_client_annonce') }}">Mes annonces <span class="badge " style="float: right; margin-right: 5px; background-color: #0a74a7 ">{{ render(controller('NanotechEasylinkBundle:Client:nbrannonce')) }}</span></a> </li>
+                                <li><a href="{{ path('nanotech_easylink_client_estimation') }}">Mes estimations <span class="badge " style="float: right; margin-right: 5px; background-color: #0a74a7 ">9</span></a></li>
+                                <li><a href="{{ path('nanotech_easylink_client_devis') }}">Mes avis <span class="badge " style="float: right; margin-right: 5px; background-color: #0a74a7 ">{{ render(controller('NanotechEasylinkBundle:Client:nbravis')) }}</span></a></li>
                                 <li><a href="#">Mes informations</a></li>
-                                <li><a href="#">Déconnexion</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
 
                             </ul>
                         </div>
@@ -45,8 +45,8 @@
                 <!-- Left Side END -->
 
                 <!-- Right Side START -->
-                <div class="col-md-9 col-sm-8 col-xs-12">
-                </div>
+                {% block droit %}
+                {% endblock %}
                 <!-- Right Side END -->
             </div>
         </div>

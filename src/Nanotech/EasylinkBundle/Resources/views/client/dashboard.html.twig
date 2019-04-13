@@ -1,0 +1,34 @@
+{% extends 'NanotechEasylinkBundle:client:index.html.twig' %}
+{% block droit %}
+    <div class="col-md-9 col-sm-8 col-xs-12">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="contact-box">
+                    <h1 style="color: #2193f1">{{ render(controller('NanotechEasylinkBundle:Client:nbrannonce')) }}</h1>
+                    <h4>Mes annonces</h4>
+                    <a href="{{ path('nanotech_easylink_client_annonce') }}" class="dark-button1 button-md">Détails</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="contact-box">
+                    <h1 style="color: #2193f1">1</h1>
+                    <h4>Mes estimations</h4>
+                    <a href="{{ path('nanotech_easylink_client_estimation') }}" class="dark-button1 button-md">Détails</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="contact-box">
+                    <h1 style="color: #2193f1">{{ render(controller('NanotechEasylinkBundle:Client:nbravis')) }}</h1>
+                    <h4>Mes avis</h4>
+                    <a href="{{ path('nanotech_easylink_client_devis') }}" class="dark-button1 button-md">Détails</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+
+
+        </div>
+
+    </div>
+{% endblock %}

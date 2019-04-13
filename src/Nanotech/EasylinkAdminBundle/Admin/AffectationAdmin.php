@@ -14,6 +14,9 @@ class AffectationAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('id')
+            ->add('artisan1')
+            ->add('artisan2')
+            ->add('artisan3')
             ->add('dateEn')
         ;
     }
@@ -22,6 +25,10 @@ class AffectationAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
+            ->add('offre')
+            ->add('artisan1')
+            ->add('artisan2')
+            ->add('artisan3')
             ->add('dateEn')
             ->add('_action', null, [
                 'actions' => [
@@ -36,7 +43,9 @@ class AffectationAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('utilisateur')
+            ->add('artisan1')
+            ->add('artisan2')
+            ->add('artisan3')
             ->add('offre')
         ;
     }
@@ -45,6 +54,10 @@ class AffectationAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('id')
+            ->add('artisan1')
+            ->add('artisan2')
+            ->add('artisan3')
+            ->add('offre')
             ->add('dateEn')
         ;
     }

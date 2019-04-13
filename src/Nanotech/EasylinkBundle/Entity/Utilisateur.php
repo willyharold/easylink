@@ -102,8 +102,6 @@ class Utilisateur extends BaseUser
     private $adresse;
 
 
-
-
     public function __construct()
     {
         $this->dateEnreg = new \DateTime();
