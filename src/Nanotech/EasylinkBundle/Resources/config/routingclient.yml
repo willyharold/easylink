@@ -18,6 +18,10 @@ nanotech_easylink_client_dell_annonce:
     path:     /annonce/dell/{id}
     defaults: { _controller: NanotechEasylinkBundle:Client:dell_annonce }
 
+nanotech_easylink_client_view_annonce:
+    path:     /annonce/view/{id}
+    defaults: { _controller: NanotechEasylinkBundle:Client:view_annonce }
+
 
 nanotech_easylink_client_estimation:
     path:     /estimation

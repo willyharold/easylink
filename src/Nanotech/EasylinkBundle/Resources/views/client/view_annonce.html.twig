@@ -1,0 +1,116 @@
+{% extends 'NanotechEasylinkBundle:client:index.html.twig' %}
+{% block droit %}
+    <div class="col-md-9 col-sm-8 col-xs-12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="services-single-left-heading">
+                    <h4>Détails de l'annonce</h4>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="project-single-text">
+                <!-- Left Side Start -->
+                <div class="col-md-7 col-sm-7 col-xs-12">
+                    <h5>Description de l'annonce</h5>
+                    <p class="text-justify">{{ offre.description }}</p>
+                    <i></i>
+
+                </div>
+                <!-- Left Side End -->
+
+                <!-- Right Side Start -->
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                    <h5>Information de l'annonce</h5>
+                    <div class="project-single-info">
+                        <ul>
+                            <li><span>Catégorie :</span> {{ offre.sousSpecialite.specialite }}</li>
+                            <li><span>Spécialité :</span> {{ offre.sousSpecialite }}</li>
+                            <li><span>Status :</span> {{ offre.etat }}</li>
+                            <li><span>Artisan :</span> {{ offre.artisan }}</li>
+                            <li><span>Date :</span> {{ offre.dateEn | date }}</li>
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- Right Side End -->
+            </div>
+
+        </div>
+        <div class="row">
+                <div class="services-single-left-heading">
+                    <h4>Les artisans selectionnés pour vous !</h4>
+                </div>
+        </div>
+        {% if affectation is defined %}
+             <div class="row mt-50">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="team-member">
+                    <div class="team-member-img">
+                        <img src="http://via.placeholder.com/358x298" alt="img">
+                    </div>
+                    <div class="team-member-text">
+                        <h5><a href="#">{{ affectation.artisan1.prenom }} {{ affectation.artisan1.nom }}</a></h5>
+                        <span>{{ affectation.artisan1.specialite }}</span>
+                        <div class="product-review-area">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                        <a href="#" class="btn btn-info btn-block">Me contacter</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="team-member">
+                    <div class="team-member-img">
+                        <img src="http://via.placeholder.com/358x298" alt="img">
+                    </div>
+                    <div class="team-member-text">
+                        <h5><a href="#">{{ affectation.artisan1.prenom }} {{ affectation.artisan1.nom }}</a></h5>
+                        <span>{{ affectation.artisan1.specialite }}</span>
+                        <div class="product-review-area">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                        <a href="#" class="btn btn-info btn-block">Me contacter</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="team-member">
+                    <div class="team-member-img">
+                        <img src="http://via.placeholder.com/358x298" alt="img">
+                    </div>
+                    <div class="team-member-text">
+                        <h5><a href="#">{{ affectation.artisan1.prenom }} {{ affectation.artisan1.nom }}</a></h5>
+                        <span>{{ affectation.artisan1.specialite }}</span>
+                        <div class="product-review-area">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                        <a href="#" class="btn btn-info btn-block">Me contacter</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% else %}
+            <p>Désolez, aucun artisan n'a postulé pour le moment !</p>
+        {% endif %}
+
+    </div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

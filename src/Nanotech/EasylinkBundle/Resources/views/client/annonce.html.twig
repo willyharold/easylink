@@ -38,7 +38,7 @@
                     <th>{{ annonce.Artisan }}</th>
                     <th>{{ annonce.dateEn | date }}</th>
                     <th>
-                        <a href="#" class="btn btn-info">Voir</a>
+                        <a href="{{ path('nanotech_easylink_client_view_annonce',{id:annonce.id}) }}" class="btn btn-info">Voir</a>
                         <a href="{{ path('nanotech_easylink_client_edit_annonce',{id:annonce.id}) }}" class="btn btn-default">Modifier</a>
                         <a href="{{ path('nanotech_easylink_client_dell_annonce',{id:annonce.id}) }}" class="btn btn-danger">Supprimer</a>
                     </th>

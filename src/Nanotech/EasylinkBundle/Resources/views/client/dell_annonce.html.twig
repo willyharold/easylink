@@ -35,33 +35,5 @@
 {% endblock %}
 
 {% block script %}
-    <script>
-        function updatesous(){
-            var id = $('#form-specialite').val();
 
-            $.ajax({
-                async: true,
-                url: "/easylink/web/sousspecialite/"+id,
-                method: "GET"
-                ,
-                success:function(data){
-                    var element = document.getElementById("nanotech_easylinkbundle_offre_sous_specialite");
-                    while (element.firstChild) {
-                        element.removeChild(element.firstChild);
-                    }
-                    $('#nanotech_easylinkbundle_offre_sous_specialite').append(data);
-
-                },
-                error:function (er) {
-
-                    var element = document.getElementById("nanotech_easylinkbundle_offre_sous_specialite");
-                    while (element.firstChild) {
-                        element.removeChild(element.firstChild);
-                    }
-                }
-
-            });
-
-        }
-    </script>
 {% endblock %}

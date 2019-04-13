@@ -97,6 +97,13 @@ class ClientController extends Controller
         return $this->render('NanotechEasylinkBundle:client:dell_annonce.html.twig',['form'=>$form->createView()]);
     }
 
+    public function view_annonceAction(Request $request,$id = 0){
+        $em = $this->getDoctrine()->getManager();
+        $offre = $em->getRepository('NanotechEasylinkBundle:Offre')->findOneById($id);
+        $affectation = $em->getRepository('NanotechEasylinkBundle:Affectation')->findOneByOffre($offre);
+        return $this->render('NanotechEasylinkBundle:client:view_annonce.html.twig',['offre'=>$offre,'affectation'=>$affectation]);
+    }
+
     public function estimationAction(){
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('NanotechEasylinkBundle:Specialite')->findAll();
