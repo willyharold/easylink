@@ -38,10 +38,10 @@ class ClientController extends Controller
         $categories = $em->getRepository('NanotechEasylinkBundle:Specialite')->findAll();
 
         if($request->getMethod() == "POST"){
-            dump($offre);
+            //dump($offre);
             $form->handleRequest($request);
             if($form->isSubmitted() && $form->isValid()){
-                dump($offre);
+              //  dump($offre);
                 $offre->setClient($user);
                 $offre->setEtat("En attente");
                 $session = new Session();
@@ -62,10 +62,10 @@ class ClientController extends Controller
         $categories = $em->getRepository('NanotechEasylinkBundle:Specialite')->findAll();
 
         if($request->getMethod() == "POST"){
-            dump($offre);
+          //  dump($offre);
             $form->handleRequest($request);
             if($form->isSubmitted() && $form->isValid()){
-                dump($offre);
+            //    dump($offre);
                 //$offre->setClient($user);
                // $offre->setEtat("En attente");
                 $session = new Session();
