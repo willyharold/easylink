@@ -26,7 +26,7 @@ class ClientController extends Controller
     public function annonceAction(){
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
-        $annonces = $em->getRepository('NanotechEasylinkBundle:Offre')->findAll();
+        $annonces = $em->getRepository('NanotechEasylinkBundle:Offre')->findByClient($user);
         return $this->render('NanotechEasylinkBundle:client:annonce.html.twig',["annonces"=>$annonces]);
     }
 
