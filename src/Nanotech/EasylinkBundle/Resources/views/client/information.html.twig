@@ -1,0 +1,178 @@
+{% extends 'NanotechEasylinkBundle:client:index.html.twig' %}
+{% block droit %}
+    <div class="col-md-9 col-sm-8 col-xs-12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="services-single-left-heading">
+                    <h4>Mes informations</h4>
+                </div>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="{{ path('nanotech_easylink_client_index') }}" class="btn btn-info">Retour</a>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <br>
+            {% for flashMessage in app.session.flashbag.get('information') %}
+                <div class="alert alert-success" role="alert">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+            <div class="col-md-6 contact-form">
+                <div class="row">
+                        <div class="col-md-6">
+                            <p style="font-weight: bolder">Nom :</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{ user.nom }}</p>
+                        </div>
+
+                    </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p style="font-weight: bolder">Prenom :</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{ user.prenom }}</p>
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p style="font-weight: bolder">Email :</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{ user.email }}</p>
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p style="font-weight: bolder">Username :</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{ user.username }}</p>
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p style="font-weight: bolder">Sexe :</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{ user.sexe }}</p>
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p style="font-weight: bolder">Date de naissance :</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{ user.dateNaissance | date }}</p>
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p style="font-weight: bolder">Téléphone :</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{ user.telephone }}</p>
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p style="font-weight: bolder">Adresse :</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{ user.adresse }}</p>
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p style="font-weight: bolder">Code postal :</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{ user.codePostale }}</p>
+                    </div>
+
+                </div>
+
+                <br>
+                <a href="{{ path('nanotech_easylink_client_edit_information') }}" style="text-align: center">Modifier mes informations</a>
+            </div>
+            <div class="col-md-6 contact-form">
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        {% if user.avatar.media is defined %}
+                            <img src="{% path user.avatar , 'big' %}" class="img-rounded" alt="avatar">
+                        {% else %}
+                            <img src="{{ asset('img/login.jpg') }}" class="img-rounded" alt="avatar">
+                        {% endif %}
+                    </div>
+                </div>
+                <form method="post" action="{{ path('nanotech_easylink_client_information')}}" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="file" name="image" id="img" required>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" >Charger</button>
+                        </div>
+                    </div>
+                </form>
+                <a href="{{ path('nanotech_easylink_client_changePassword_information') }}" style="text-align: center">Modifier mon mot de passe</a>
+
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        function updateimg() {
+            var id = $('#img')[0].files[0];
+            console.log(id)
+            var fd = new FormData();
+            fd.append('image',id);
+            console.log(fd);
+
+            $.ajax({
+                async: true,
+                url: "{{ path('nanotech_easylink_client_information') }}",
+                method: "POST",
+                data:fd ,
+                contentType: false,
+                processData: false
+                ,
+                success:function(data){
+                   console.log(data)
+
+                },
+                error:function (er) {
+                    console.log(er)
+                }
+
+            });
+
+        }
+    </script>
+
+{% endblock %}

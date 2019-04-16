@@ -3,6 +3,9 @@
 namespace Nanotech\EasylinkBundle\Controller;
 
 use Nanotech\EasylinkBundle\Entity\Offre;
+use Nanotech\EasylinkBundle\Form\ClientType;
+use Nanotech\EasylinkBundle\Form\ImageclientType;
+use Nanotech\MediaBundle\Entity\Media;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -78,6 +81,23 @@ class ClientController extends Controller
         return $this->render('NanotechEasylinkBundle:client:new_annonce.html.twig',['form'=>$form->createView(),'categories'=>$categories]);
     }
 
+    public function edit_informationAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
+        $form = $this->createForm(ClientType::class,$user);
+        if($request->getMethod() == "POST"){
+            $form->handleRequest($request);
+            if($form->isSubmitted() && $form->isValid()){
+                $session = new Session();
+                $session->getFlashBag()->add('information',"Modification des informations reussi");
+                $em->merge($user);
+                $em->flush();
+                return $this->redirectToRoute('nanotech_easylink_client_information');
+            }
+        }
+        return $this->render('NanotechEasylinkBundle:client:edit_information.html.twig',['form'=>$form->createView()]);
+    }
+
     public function dell_annonceAction(Request $request,$id = 0){
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
@@ -136,5 +156,77 @@ class ClientController extends Controller
         $em = $this->getDoctrine()->getManager();
         $annonce = $em->getRepository('NanotechEasylinkBundle:Avis')->find($user);
         return new Response(count($annonce));
+    }
+
+    public function informationAction(Request $request){
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(FormType::class,$user);
+        if($request->getMethod() == "POST"){
+            //$img = $request->request->get("form-image");
+            dump($_FILES['image']);
+            $img = $_FILES['image']['tmp_name'];
+            $media_sizes = getimagesize($img);
+            $mediaManager = $this->get("sonata.media.manager.media");
+            $media = new Media();
+
+            $media->setBinaryContent($img);
+            $media->setContext('default');
+            $media->setProviderName('sonata.media.provider.image');
+            $media->setSize($_FILES['image']['size']);
+            $media->setWidth($media_sizes[0]);
+            $media->setHeight($media_sizes[1]);
+
+            dump($media);
+
+            $mediaManager->save($media);
+
+            $user->setAvatar($media);
+            $em->merge($user);
+            $em->flush();
+
+            $session = new Session();
+            $session->getFlashBag()->add('information',"Modification des informations reussi");
+
+            return $this->redirectToRoute('nanotech_easylink_client_information');
+
+        }
+        return $this->render('NanotechEasylinkBundle:client:information.html.twig',["user"=>$user,"form"=>$form->createView()]);
+    }
+
+    public function editPasswordAction(Request $request){
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(FormType::class,$user);
+        if($request->getMethod() == "POST"){
+            $ancienpassword = $request->request->get("oldpassword");
+            $nouveaupassword = $request->request->get("newpassword");
+            $nouveau2password = $request->request->get("newpassword1");
+            if($nouveaupassword != $nouveau2password){
+                $session = new Session();
+                $session->getFlashBag()->add('error',"Mot de passe different");
+                return $this->render('NanotechEasylinkBundle:client:edit_password.html.twig',["form"=>$form->createView(),"error1"=> true ]);
+            }
+
+            $encoder_service = $this->get('security.encoder_factory');
+            $encoder = $encoder_service->getEncoder($user);
+
+            if($encoder ->isPasswordValid($user->getPassword(),$ancienpassword,$user->getSalt())){
+                $user->setplainPassword($nouveaupassword);
+                $em->merge($user);
+                $em->flush();
+                $session = new Session();
+                $session->getFlashBag()->add('information',"Modification du mot de passe reussi");
+                return $this->redirectToRoute('nanotech_easylink_client_information');
+            }
+            else{
+                $session = new Session();
+                $session->getFlashBag()->add('error',"Ancien mot de passe refusé");
+                return $this->render('NanotechEasylinkBundle:client:edit_password.html.twig',["form"=>$form->createView(),"error" => true]);
+
+            }
+
+        }
+        return $this->render('NanotechEasylinkBundle:client:edit_password.html.twig',["form"=>$form->createView()]);
     }
 }

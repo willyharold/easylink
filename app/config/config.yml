@@ -44,9 +44,10 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
-    form:
-        resources:
-            - 'media_widgets.html.twig'
+    form_themes:
+        - 'media_widgets.html.twig'
+        - '@SonataCore/Form/datepicker.html.twig'
+
 
 # Doctrine Configuration
 doctrine:

@@ -66,14 +66,7 @@ class Utilisateur extends BaseUser
      * @ORM\Column(name="dateEnreg", type="datetime",nullable=true)
      */
     private $dateEnreg;
-    
-    protected $email;    
-    
-    protected $password;
 
-    protected $username;
-
-    
      /**
     * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Specialite")
     * @ORM\JoinColumn(nullable=true)
@@ -101,6 +94,19 @@ class Utilisateur extends BaseUser
      */
     private $adresse;
 
+
+    protected $email;
+
+    protected $password;
+
+    protected $username;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Nanotech\MediaBundle\Entity\Media",cascade={"all"})
+     * @ORM\JoinColumn(nullable=true)
+     *
+     */
+    private $avatar;
 
     public function __construct()
     {
@@ -347,6 +353,31 @@ class Utilisateur extends BaseUser
     public function getSpecialite()
     {
         return $this->specialite;
+    }
+
+
+    /**
+     * Set avatar
+     *
+     * @param \Nanotech\MediaBundle\Entity\Media $avatar
+     *
+     * @return Utilisateur
+     */
+    public function setAvatar(\Nanotech\MediaBundle\Entity\Media $avatar = null)
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * Get avatar
+     *
+     * @return \Nanotech\MediaBundle\Entity\Media
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
     }
 
 }

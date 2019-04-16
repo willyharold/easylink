@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\MediaBundle\Form\Type\MediaType;
 
 class UtilisateurAdmin extends AbstractAdmin
 {
@@ -75,17 +76,9 @@ class UtilisateurAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('username')
-            ->add('usernameCanonical')
             ->add('email')
-            ->add('emailCanonical')
             ->add('enabled')
-            ->add('salt')
-            ->add('password')
-            ->add('lastLogin')
-            ->add('confirmationToken')
-            ->add('passwordRequestedAt')
             ->add('roles')
-            ->add('id')
             ->add('nom')
             ->add('prenom')
             ->add('sexe')
@@ -95,6 +88,7 @@ class UtilisateurAdmin extends AbstractAdmin
             ->add('codePostale')
             ->add('adresse')
             ->add('specialite')
+            ->add('avatar',MediaType::class,['context'=>'default','provider'=>'sonata.media.provider.image'])
         ;
     }
 

@@ -22,6 +22,17 @@ nanotech_easylink_client_view_annonce:
     path:     /annonce/view/{id}
     defaults: { _controller: NanotechEasylinkBundle:Client:view_annonce }
 
+nanotech_easylink_client_information:
+    path:     /information
+    defaults: { _controller: NanotechEasylinkBundle:Client:information }
+
+nanotech_easylink_client_edit_information:
+    path:     /information/edit
+    defaults: { _controller: NanotechEasylinkBundle:Client:edit_information }
+
+nanotech_easylink_client_changePassword_information:
+    path:     /information/changePassword
+    defaults: { _controller: NanotechEasylinkBundle:Client:editPassword }
 
 nanotech_easylink_client_estimation:
     path:     /estimation
