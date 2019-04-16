@@ -164,7 +164,7 @@ class ClientController extends Controller
         $form = $this->createForm(FormType::class,$user);
         if($request->getMethod() == "POST"){
             //$img = $request->request->get("form-image");
-            dump($_FILES['image']);
+            //dump($_FILES['image']);
             $img = $_FILES['image']['tmp_name'];
             $media_sizes = getimagesize($img);
             $mediaManager = $this->get("sonata.media.manager.media");
@@ -177,7 +177,7 @@ class ClientController extends Controller
             $media->setWidth($media_sizes[0]);
             $media->setHeight($media_sizes[1]);
 
-            dump($media);
+          //  dump($media);
 
             $mediaManager->save($media);
 
