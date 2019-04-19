@@ -1,0 +1,51 @@
+{% extends 'NanotechEasylinkBundle:client:index.html.twig' %}
+{% block droit %}
+    <div class="col-md-9 col-sm-8 col-xs-12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="services-single-left-heading">
+                    <h4>Détails de l'avis</h4>
+                </div>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="{{ path('nanotech_easylink_client_avis') }}" class="btn btn-info">Retour</a>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="project-single-text">
+                <!-- Left Side Start -->
+                <div class="col-md-7 col-sm-7 col-xs-12">
+                    <h5>Description de l'avis</h5>
+                    <p class="text-justify">{{ avis.amelioration }}</p>
+                    <i></i>
+
+                </div>
+                <!-- Left Side End -->
+
+                <!-- Right Side Start -->
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                    <h5>Information de l'annonce</h5>
+                    <div class="project-single-info">
+                        <ul>
+                            <li><span>Catégorie :</span> {{ avis.offre.sousSpecialite.specialite }}</li>
+                            <li><span>Spécialité :</span> {{ avis.offre.sousSpecialite }}</li>
+                            <li><span>Status :</span> {{ avis.offre.etat }}</li>
+                            <li><span>Artisan :</span> {{ avis.offre.artisan }}</li>
+                            <li><span>Date :</span> {{ avis.offre.dateEn | date }}</li>
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- Right Side End -->
+            </div>
+
+        </div>
+
+
+    </div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

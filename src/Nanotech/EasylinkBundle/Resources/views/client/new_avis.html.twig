@@ -4,11 +4,11 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="services-single-left-heading">
-                    <h4>Poster une annonce</h4>
+                    <h4>Créer un avis </h4>
                 </div>
             </div>
             <div class="col-md-6 text-right">
-                <a href="{{ path('nanotech_easylink_client_annonce') }}" class="btn btn-info">Annuler</a>
+                <a href="{{ path('nanotech_easylink_client_avis') }}" class="btn btn-info">Annuler</a>
             </div>
         </div>
         <div class="row">
@@ -17,30 +17,18 @@
                 {{ form_start(form,{'attr':{'class':'contact-form'}}) }}
 
                     <div class="row">
-                        <div class="col-md-12">
-                            <select id="form-specialite" name="form-specialite" required onchange="updatesous()" >
-                                <option value="0" >Sélectionnez une catégorie</option>
-                                {% for categorie in categories  %}
-                                    <option value="{{ categorie.id }}">{{ categorie.nom }}</option>
-                                {% endfor %}
 
-                            </select>
-                        </div>
                         <div class="col-md-12">
-                            {{form_widget(form.sous_specialite)  }}
+                            {{form_widget(form.offre)  }}
                         </div>
 
                         <div class="col-md-12">
-                            {{ form_widget(form.description) }}
+                            {{ form_widget(form.amelioration) }}
 
                         </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            {{ form_widget(form.adresse) }}
+                        <div class="col-md-12">
+                            {{ form_widget(form.note) }}
                         </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            {{ form_widget(form.codePostale) }}
-                        </div>
-
 
                     </div>
                     <div class="col-md-12 mb-30">
@@ -65,7 +53,7 @@
 
             $.ajax({
                 async: true,
-                url: "/easylink/web/sousspecialite/"+id,
+                url: "/web/sousspecialite/"+id,
                 method: "GET"
                 ,
                 success:function(data){

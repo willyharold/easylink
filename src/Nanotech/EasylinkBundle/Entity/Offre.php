@@ -85,6 +85,12 @@ class Offre
      */
     private $imageOffre;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Avis", inversedBy="offre")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $avis;
+
 public function __construct()
     {
         $this->dateEn = new \DateTime();
@@ -335,4 +341,28 @@ public function __construct()
     }
 
 
+
+    /**
+     * Set avis
+     *
+     * @param \Nanotech\EasylinkBundle\Entity\Avis $avis
+     *
+     * @return Offre
+     */
+    public function setAvis(\Nanotech\EasylinkBundle\Entity\Avis $avis = null)
+    {
+        $this->avis = $avis;
+
+        return $this;
+    }
+
+    /**
+     * Get avis
+     *
+     * @return \Nanotech\EasylinkBundle\Entity\Avis
+     */
+    public function getAvis()
+    {
+        return $this->avis;
+    }
 }

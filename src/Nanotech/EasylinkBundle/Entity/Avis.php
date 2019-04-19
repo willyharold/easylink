@@ -24,14 +24,14 @@ class Avis
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu", type="text", length=255)
+     * @ORM\Column(name="contenu", type="text", length=255, nullable=true)
      */
     private $contenu;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="Note", type="integer",length=255)
+     * @ORM\Column(name="Note", type="integer")
      */
     private $note;
 
@@ -50,7 +50,7 @@ class Avis
     private $dateEn;
     
       /**
-    * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Offre")
+    * @ORM\OneToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Offre",mappedBy="avis")
     * @ORM\JoinColumn(nullable=false) 
     */
     private $offre;
@@ -59,7 +59,7 @@ class Avis
     * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Utilisateur")
     * @ORM\JoinColumn(nullable=false) 
     */
-    private $utilisateur; 
+    private $client;
 
 
     /**
@@ -172,21 +172,40 @@ class Avis
         return $this->offre;
     }
 
-    function getUtilisateur() {
-        return $this->utilisateur;
-    }
+
 
     function setOffre($offre) {
         $this->offre = $offre;
     }
 
-    function setUtilisateur($utilisateur) {
-        $this->utilisateur = $utilisateur;
-    }
 
 public function __construct()
     {
         $this->dateEn = new \DateTime();
 
+    }
+
+    /**
+     * Set client
+     *
+     * @param \Nanotech\EasylinkBundle\Entity\Utilisateur $client
+     *
+     * @return Avis
+     */
+    public function setClient(\Nanotech\EasylinkBundle\Entity\Utilisateur $client)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return \Nanotech\EasylinkBundle\Entity\Utilisateur
+     */
+    public function getClient()
+    {
+        return $this->client;
     }
 }

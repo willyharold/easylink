@@ -1,0 +1,56 @@
+{% extends 'NanotechEasylinkBundle:client:index.html.twig' %}
+{% block droit %}
+    <div class="col-md-9 col-sm-8 col-xs-12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="services-single-left-heading">
+                    <h4>Mes avis</h4>
+                </div>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="{{ path('nanotech_easylink_client_new_avis') }}" class="btn btn-info">Faire un avis</a>
+            </div>
+        </div>
+        <div class="row">
+            <br>
+            {% for flashMessage in app.session.flashbag.get('avis') %}
+                <div class="alert alert-success" role="alert">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+
+
+            <table class="table table-striped" >
+                <thead style="color: #0d6aad;">
+                <th scope="col">#</th>
+                <th scope="col">Annonce</th>
+                <th scope="col">Suggestion</th>
+                <th scope="col">Note sur 5</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
+                </thead>
+                <tbody style="color: black;">
+                {% for avi in avis %}
+                <tr>
+                    <th scope="row">{{ avi.id }}</th>
+                    <th><a  class="btn btn-default" href="{{ path('nanotech_easylink_client_view_annonce',{id:avi.offre.id}) }}">{{ avi.offre.id }}</a></th>
+                    <th>{{ avi.amelioration }}</th>
+                    <th>{{ avi.note }}</th>
+                    <th>{{ avi.dateEn | date }}</th>
+                    <th>
+                        <a href="{{ path('nanotech_easylink_client_view_avis',{id:avi.id})  }}" class="btn btn-info">Voir</a>
+                        <a href="{{ path('nanotech_easylink_client_edit_avis',{id:avi.id}) }}" class="btn btn-default">Modifier</a>
+                        <a href="{{ path('nanotech_easylink_client_dell_avis',{id:avi.id}) }}" class="btn btn-danger">Supprimer</a>
+                    </th>
+                </tr>
+                {% endfor %}
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
+{% endblock %}

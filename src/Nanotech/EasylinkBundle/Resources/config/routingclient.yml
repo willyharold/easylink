@@ -14,13 +14,27 @@ nanotech_easylink_client_edit_annonce:
     path:     /annonce/edit/{id}
     defaults: { _controller: NanotechEasylinkBundle:Client:edit_annonce }
 
+nanotech_easylink_client_edit_avis:
+    path:     /avis/edit/{id}
+    defaults: { _controller: NanotechEasylinkBundle:Client:edit_avis }
+
 nanotech_easylink_client_dell_annonce:
     path:     /annonce/dell/{id}
     defaults: { _controller: NanotechEasylinkBundle:Client:dell_annonce }
 
+nanotech_easylink_client_dell_avis:
+    path:     /avis/dell/{id}
+    defaults: { _controller: NanotechEasylinkBundle:Client:dell_avis }
+
+
 nanotech_easylink_client_view_annonce:
     path:     /annonce/view/{id}
     defaults: { _controller: NanotechEasylinkBundle:Client:view_annonce }
+
+
+nanotech_easylink_client_view_avis:
+    path:     /avis/view/{id}
+    defaults: { _controller: NanotechEasylinkBundle:Client:view_avis }
 
 nanotech_easylink_client_information:
     path:     /information
@@ -38,6 +52,10 @@ nanotech_easylink_client_estimation:
     path:     /estimation
     defaults: { _controller: NanotechEasylinkBundle:Client:estimation }
 
-nanotech_easylink_client_devis:
-    path:     /devis
-    defaults: { _controller: NanotechEasylinkBundle:Client:devis  }
+nanotech_easylink_client_avis:
+    path:     /avis
+    defaults: { _controller: NanotechEasylinkBundle:Client:avis  }
+
+nanotech_easylink_client_new_avis:
+    path:     /avis/add
+    defaults: { _controller: NanotechEasylinkBundle:Client:new_avis  }

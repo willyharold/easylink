@@ -2,6 +2,9 @@
 
 namespace Nanotech\EasylinkBundle\Repository;
 
+use Nanotech\EasylinkBundle\Entity\Offre;
+use Nanotech\EasylinkBundle\Entity\Utilisateur;
+
 /**
  * AvisRepository
  *
@@ -10,4 +13,6 @@ namespace Nanotech\EasylinkBundle\Repository;
  */
 class AvisRepository extends \Doctrine\ORM\EntityRepository
 {
+
+
 }
