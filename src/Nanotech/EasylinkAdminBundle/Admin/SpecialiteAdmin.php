@@ -17,6 +17,7 @@ class SpecialiteAdmin extends AbstractAdmin
             ->add('nom')
             ->add('deCourte')
             ->add('deLongue')
+            ->add('code')
         ;
     }
 
@@ -27,6 +28,8 @@ class SpecialiteAdmin extends AbstractAdmin
             ->add('nom')
             ->add('deCourte')
             ->add('deLongue')
+            ->add('code')
+
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -43,7 +46,9 @@ class SpecialiteAdmin extends AbstractAdmin
             ->add('nom')
             ->add('deCourte')
             ->add('deLongue')
-          ->add('image', 'sonata_media_type', array(
+            ->add('code')
+
+            ->add('image', 'sonata_media_type', array(
                         'provider' => 'sonata.media.provider.image',
                         'context' => 'photo',
                         'required' => true,
@@ -59,6 +64,8 @@ class SpecialiteAdmin extends AbstractAdmin
             ->add('nom')
             ->add('deCourte')
             ->add('deLongue')
+            ->add('code')
+
         ;
     }
 }

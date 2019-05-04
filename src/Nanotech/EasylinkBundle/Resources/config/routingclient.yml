@@ -50,7 +50,27 @@ nanotech_easylink_client_changePassword_information:
 
 nanotech_easylink_client_estimation:
     path:     /estimation
-    defaults: { _controller: NanotechEasylinkBundle:Client:estimation }
+    defaults: { _controller: NanotechEasylinkBundle:Estimation:estimation }
+
+nanotech_easylink_client_estimation_add:
+    path:     /estimation/add
+    defaults: { _controller: NanotechEasylinkBundle:Estimation:newestimation }
+
+nanotech_easylink_client_estimation_view:
+    path:     /estimation/view/{id}
+    defaults: { _controller: NanotechEasylinkBundle:Estimation:viewestimation }
+
+nanotech_easylink_client_estimation_edit:
+    path:     /estimation/edit/{id}
+    defaults: { _controller: NanotechEasylinkBundle:Estimation:editfenetre }
+
+nanotech_easylink_client_estimation_del:
+    path:     /estimation/del/{id}
+    defaults: { _controller: NanotechEasylinkBundle:Estimation:dell_estimation }
+
+nanotech_easylink_client_estimation_fenetre_add:
+    path:     /estimation/fenetre/add/{id}
+    defaults: { _controller: NanotechEasylinkBundle:Estimation:newfenetre }
 
 nanotech_easylink_client_avis:
     path:     /avis

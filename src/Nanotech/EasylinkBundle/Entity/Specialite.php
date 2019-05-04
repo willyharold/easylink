@@ -50,6 +50,14 @@ class Specialite
 
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="text", length=255)
+     */
+    private $code;
+
+
+    /**
      * Get id
      *
      * @return int
@@ -146,4 +154,28 @@ class Specialite
     }
 
 
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return Specialite
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
 }

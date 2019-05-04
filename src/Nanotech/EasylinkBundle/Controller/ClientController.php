@@ -229,6 +229,13 @@ class ClientController extends Controller
         return new Response(count($annonce));
     }
 
+    public function nbrestimationAction(){
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $estimation= $em->getRepository('NanotechEasylinkBundle:Estimation')->findByClient($user);
+        return new Response(count($estimation));
+    }
+
     public function nbravisAction(){
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();

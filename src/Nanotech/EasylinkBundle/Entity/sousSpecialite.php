@@ -55,11 +55,11 @@ class sousSpecialite
      */
     private  $photo;
     
-     /**
-    * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Specialite")
-    * @ORM\JoinColumn(nullable=false) 
-    */
-    private $specialite; 
+         /**
+        * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Specialite")
+        * @ORM\JoinColumn(nullable=false)
+        */
+        private $specialite;
 
 
 

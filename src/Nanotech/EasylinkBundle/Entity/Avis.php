@@ -51,11 +51,17 @@ class Avis
     
       /**
     * @ORM\OneToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Offre",mappedBy="avis")
-    * @ORM\JoinColumn(nullable=false) 
+    * @ORM\JoinColumn(nullable=true)
     */
     private $offre;
-    
-      /**
+
+    /**
+     * @ORM\OneToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Estimation",mappedBy="avis")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $estimation;
+
+    /**
     * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Utilisateur")
     * @ORM\JoinColumn(nullable=false) 
     */
@@ -207,5 +213,29 @@ public function __construct()
     public function getClient()
     {
         return $this->client;
+    }
+
+    /**
+     * Set estimation
+     *
+     * @param \Nanotech\EasylinkBundle\Entity\Estimation $estimation
+     *
+     * @return Avis
+     */
+    public function setEstimation(\Nanotech\EasylinkBundle\Entity\Estimation $estimation = null)
+    {
+        $this->estimation = $estimation;
+
+        return $this;
+    }
+
+    /**
+     * Get estimation
+     *
+     * @return \Nanotech\EasylinkBundle\Entity\Estimation
+     */
+    public function getEstimation()
+    {
+        return $this->estimation;
     }
 }

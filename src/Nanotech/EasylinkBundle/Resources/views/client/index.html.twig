@@ -31,7 +31,7 @@
                             <ul>
                                 <li class="services-active"><a href="{{ path('nanotech_easylink_client_index') }}">Tableau de bord</a></li>
                                 <li><a href="{{ path('nanotech_easylink_client_annonce') }}">Mes annonces <span class="badge " style="float: right; margin-right: 5px; background-color: #0a74a7 ">{{ render(controller('NanotechEasylinkBundle:Client:nbrannonce')) }}</span></a> </li>
-                                <li><a href="{{ path('nanotech_easylink_client_estimation') }}">Mes estimations <span class="badge " style="float: right; margin-right: 5px; background-color: #0a74a7 ">0</span></a></li>
+                                <li><a href="{{ path('nanotech_easylink_client_estimation') }}">Mes estimations <span class="badge " style="float: right; margin-right: 5px; background-color: #0a74a7 ">{{ render(controller('NanotechEasylinkBundle:Client:nbrestimation')) }}</span></a></li>
                                 <li><a href="{{ path('nanotech_easylink_client_avis') }}">Mes avis <span class="badge " style="float: right; margin-right: 5px; background-color: #0a74a7 ">{{ render(controller('NanotechEasylinkBundle:Client:nbravis')) }}</span></a></li>
                                 <li><a href="{{ path('nanotech_easylink_client_information') }}">Mes informations</a></li>
                                 <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
