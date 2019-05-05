@@ -314,4 +314,5 @@ class ClientController extends Controller
         }
         return $this->render('NanotechEasylinkBundle:client:edit_password.html.twig',["form"=>$form->createView()]);
     }
+
 }

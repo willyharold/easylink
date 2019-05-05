@@ -30,9 +30,17 @@ class Affectation
 
      /**
     * @ORM\OneToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Offre")
-    * @ORM\JoinColumn(nullable=false) 
+    * @ORM\JoinColumn(nullable=true)
     */
     private $offre;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Estimation")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $estimation;
+
+
     
     /**
     * @ORM\ManyToOne(targetEntity="Nanotech\EasylinkBundle\Entity\Utilisateur")
@@ -190,5 +198,29 @@ class Affectation
     public function getArtisan3()
     {
         return $this->artisan3;
+    }
+
+    /**
+     * Set estimation
+     *
+     * @param \Nanotech\EasylinkBundle\Entity\Estimation $estimation
+     *
+     * @return Affectation
+     */
+    public function setEstimation(\Nanotech\EasylinkBundle\Entity\Estimation $estimation = null)
+    {
+        $this->estimation = $estimation;
+
+        return $this;
+    }
+
+    /**
+     * Get estimation
+     *
+     * @return \Nanotech\EasylinkBundle\Entity\Estimation
+     */
+    public function getEstimation()
+    {
+        return $this->estimation;
     }
 }

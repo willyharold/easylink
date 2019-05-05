@@ -12,6 +12,14 @@
             </div>
         </div>
         <div class="row">
+            <br>
+            {% for flashMessage in app.session.flashbag.get('contact') %}
+                <div class="alert alert-success" role="alert">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+
+
             <div class="project-single-text">
                 <!-- Left Side Start -->
                 <div class="col-md-7 col-sm-7 col-xs-12">
@@ -53,7 +61,12 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="team-member">
                     <div class="team-member-img">
-                        <img src="http://via.placeholder.com/358x298" alt="img">
+                        {% if affectation.artisan1.avatar.media is defined %}
+                            <img src="{% path affectation.artisan1.avatar , 'big' %}" width="358" alt="avatar">
+                        {% else %}
+                            <img src="http://via.placeholder.com/358x298" alt="img">
+
+                        {% endif %}
                     </div>
                     <div class="team-member-text">
                         <h5><a href="#">{{ affectation.artisan1.prenom }} {{ affectation.artisan1.nom }}</a></h5>
@@ -64,7 +77,10 @@
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
                         </div>
-                        <a href="#" class="btn btn-info btn-block">Me contacter</a>
+                        {{ form_start(form) }}
+                        <input type="hidden" value="{{ affectation.artisan1.id }}" name="artisan">
+                        <input type="submit"  class="btn btn-info btn-block" value="Me contacter">
+                        {{ form_end(form) }}
                     </div>
                 </div>
             </div>
@@ -72,7 +88,12 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="team-member">
                     <div class="team-member-img">
-                        <img src="http://via.placeholder.com/358x298" alt="img">
+                        {% if affectation.artisan2.avatar.media is defined %}
+                            <img src="{% path affectation.artisan2.avatar , 'big' %}" width="358" alt="avatar">
+                        {% else %}
+                            <img src="http://via.placeholder.com/358x298" alt="img">
+
+                        {% endif %}
                     </div>
                     <div class="team-member-text">
                         <h5><a href="#">{{ affectation.artisan1.prenom }} {{ affectation.artisan1.nom }}</a></h5>
@@ -83,8 +104,10 @@
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
                         </div>
-                        <a href="#" class="btn btn-info btn-block">Me contacter</a>
-
+                        {{ form_start(form) }}
+                        <input type="hidden" value="{{ affectation.artisan2.id }}" name="artisan">
+                        <input type="submit"  class="btn btn-info btn-block" value="Me contacter">
+                        {{ form_end(form) }}
                     </div>
                 </div>
             </div>
@@ -92,8 +115,12 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="team-member">
                     <div class="team-member-img">
-                        <img src="http://via.placeholder.com/358x298" alt="img">
-                    </div>
+                        {% if affectation.artisan3.avatar.media is defined %}
+                            <img src="{% path affectation.artisan3.avatar , 'big' %}" width="358" alt="avatar">
+                        {% else %}
+                            <img src="http://via.placeholder.com/358x298" alt="img">
+
+                        {% endif %}                    </div>
                     <div class="team-member-text">
                         <h5><a href="#">{{ affectation.artisan1.prenom }} {{ affectation.artisan1.nom }}</a></h5>
                         <span>{{ affectation.artisan1.specialite }}</span>
@@ -103,8 +130,10 @@
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
                         </div>
-                        <a href="#" class="btn btn-info btn-block">Me contacter</a>
-                    </div>
+                        {{ form_start(form) }}
+                        <input type="hidden" value="{{ affectation.artisan3.id }}" name="artisan">
+                        <input type="submit"  class="btn btn-info btn-block" value="Me contacter">
+                        {{ form_end(form) }}                    </div>
                 </div>
             </div>
 

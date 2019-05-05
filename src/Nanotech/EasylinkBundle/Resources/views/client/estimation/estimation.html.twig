@@ -12,6 +12,13 @@
             </div>
         </div>
         <div class="row">
+            <br>
+            {% for flashMessage in app.session.flashbag.get('estimation') %}
+                <div class="alert alert-success" role="alert">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+
 
             <table class="table table-striped" >
                 <thead style="color: #0d6aad;">

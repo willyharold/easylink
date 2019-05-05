@@ -2,6 +2,7 @@
 
 namespace Nanotech\EasylinkBundle\Controller;
 
+use Nanotech\EasylinkBundle\Entity\Contact;
 use Nanotech\EasylinkBundle\Entity\Estimation;
 use Nanotech\EasylinkBundle\Form\EstimationType;
 use Nanotech\EasylinkBundle\Form\FenetreType;
@@ -92,10 +93,29 @@ class EstimationController extends Controller
 
     public  function viewestimationAction(Request $request, $id = 0){
         $em = $this->getDoctrine()->getManager();
-
         $estimation = $em->getRepository('NanotechEasylinkBundle:Estimation')->findOneById($id);
+        $affectation = $em->getRepository('NanotechEasylinkBundle:Affectation')->findOneByEstimation($estimation);
+        $user = $this->getUser();
+        $contact = new Contact();
+        $form = $this->createForm(FormType::class,$contact);
+        if($request->getMethod() == 'POST'){
+            $form->handleRequest($request);
+            if($form->isSubmitted() && $form->isValid()){
 
-        return $this->render('NanotechEasylinkBundle:client/estimation:view_estimation.html.twig',["estimation"=>$estimation]);
+                $artisan =$em->getRepository('NanotechEasylinkBundle:Utilisateur')->findOneById($request->request->get("artisan"));
+                $contact->setClient($user);
+                $contact->setEstimation($estimation);
+                $contact->setArtisan($artisan);
+
+                $em->merge($contact);
+                $em->flush();
+                $session = new Session();
+                $session->getFlashBag()->add('contact',"l'artisan a été contacté, il vous repondra sous peu");
+
+                return $this->redirectToRoute('nanotech_easylink_client_estimation_view',["id"=>$estimation->getId()]);
+            }
+        }
+        return $this->render('NanotechEasylinkBundle:client/estimation:view_estimation.html.twig',["estimation"=>$estimation,"affectation"=>$affectation,"form"=>$form->createView()]);
     }
 
     public function dell_estimationAction(Request $request,$id = 0){
@@ -108,7 +128,7 @@ class EstimationController extends Controller
                 $em->remove($estimation);
                 $em->flush();
                 $session = new Session();
-                $session->getFlashBag()->add('avis',"Suppression de l'estimation reussi");
+                $session->getFlashBag()->add('estimation',"Suppression de l'estimation reussi");
                 return $this->redirectToRoute('nanotech_easylink_client_estimation');
             }
         }

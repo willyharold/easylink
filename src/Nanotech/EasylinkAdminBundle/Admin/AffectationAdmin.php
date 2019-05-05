@@ -26,6 +26,7 @@ class AffectationAdmin extends AbstractAdmin
         $listMapper
             ->add('id')
             ->add('offre')
+            ->add('estimation')
             ->add('artisan1')
             ->add('artisan2')
             ->add('artisan3')
@@ -47,6 +48,7 @@ class AffectationAdmin extends AbstractAdmin
             ->add('artisan2')
             ->add('artisan3')
             ->add('offre')
+            ->add('estimation')
         ;
     }
 
@@ -58,6 +60,7 @@ class AffectationAdmin extends AbstractAdmin
             ->add('artisan2')
             ->add('artisan3')
             ->add('offre')
+            ->add('estimation')
             ->add('dateEn')
         ;
     }
