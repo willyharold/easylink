@@ -1,0 +1,11 @@
+nanotech_easylink_artisan_index:
+    path:     /
+    defaults: { _controller: NanotechEasylinkBundle:Artisan:index }
+
+nanotech_easylink_artisan_register:
+    path:     /register
+    defaults: { _controller: NanotechEasylinkBundle:Artisan:inscription }
+
+nanotech_easylink_artisan_dashboard:
+    path:     /dashboard
+    defaults: { _controller: NanotechEasylinkBundle:Artisan:dashboard }

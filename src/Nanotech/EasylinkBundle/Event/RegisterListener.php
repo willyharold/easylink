@@ -41,10 +41,10 @@ class RegisterListener
         //$user = $this->entityManager->getRepository('NanotechEasylinkBundle:Utilisateur')->findOneByUsername($args->getForm()->getData());
         $session = new Session();
         $idoffre = $session->get('offre');
-        dump($this->em->getRepository('NanotechEasylinkBundle:Offre')->findAll()) ;
+        //dump($this->em->getRepository('NanotechEasylinkBundle:Offre')->findAll()) ;
         if($idoffre){
             $offre = $this->em->getRepository('NanotechEasylinkBundle:Offre')->findOneById($idoffre);
-            dump($offre);
+           // dump($offre);
             $offre->setClient($args->getUser());
             $this->em->merge($offre);
             $this->em->flush();

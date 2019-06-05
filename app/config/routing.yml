@@ -6,6 +6,10 @@ nanotech_easylink_client:
   resource: "@NanotechEasylinkBundle/Resources/config/routingclient.yml"
   prefix:   /client
 
+nanotech_easylink_artisan:
+  resource: "@NanotechEasylinkBundle/Resources/config/routingartisan.yml"
+  prefix:   /artisan
+
 nanotech_media:
     resource: "@MediaBundle/Resources/config/routing.yml"
     prefix:   /nanoMedia

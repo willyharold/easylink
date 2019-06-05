@@ -1,0 +1,141 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+
+    <!-- Preloader Start-->
+    <div id="preloader">
+        <div class="row loader">
+            <div class="loader-icon"></div>
+        </div>
+    </div>
+    <!-- Preloader End ici qu'il faut rajouter le menu -->
+
+    {{ render(controller('NanotechEasylinkBundle:Default:menu')) }}
+
+    <!-- Page Title START -->
+    <div class="page-title-section" style="background-image: url({{ asset('img/inscription.jpg') }});">
+        <div class="container">
+            <h1>Inscription</h1>
+            <ul>
+                <li><a href="{{ path('nanotech_easylink_homepage') }}">Accueil</a></li>
+                <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Page Title END -->
+
+
+    <!-- Contact Section START -->
+    {% trans_default_domain 'FOSUserBundle' %}
+
+
+
+    <div class="section-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-5 col-xs-12" style="background-image: url(http://via.placeholder.com/450x540); height: 540px;">
+                    <div class="contact-info-box">
+                        <div class="row" >
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-7 col-xs-12">
+                    <div class="section-heading mt-15">
+                        <h4>Inscrivez-vous</h4>
+                        <div class="section-heading-line-left"></div>
+                    </div>
+                    {% if app.session.get('offre') %}
+                        <div class=" alert alert-info" role="alert">
+                            Veillez terminer votre inscription pour gerer vos annonces
+                        </div>
+                    {% endif %}
+
+
+                    <div class="contact-form-box mt-30">
+                        <form class="contact-form">
+
+                        <!-- Form START -->
+                        <div class="row">
+                            <div class="section-heading mt-15">
+                                <h6>Information de la société</h6>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" placeholder="Siren" name="siren" >
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" placeholder="Nom de la société" name="siren" >
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" placeholder="Nom du responsable" name="siren" >
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" placeholder="Numéro fiscal" name="siren" >
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" placeholder="Code postale" name="siren" >
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" placeholder="Adresse" name="siren" >
+                            </div>
+                            <div class="col-md-6">
+                                <input type="tel" placeholder="Téléphone portable" name="siren" >
+                            </div>
+                            <div class="col-md-6">
+                                <input type="tel" placeholder="Téléphone fixe" name="siren" >
+                            </div>
+
+                            <div class="col-md-12">
+                                <input type="text" placeholder="Date de création" name="siren" >
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="section-heading mt-15">
+                                <h6>Information du compte</h6>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" placeholder="Email" name="siren" >
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" placeholder="Nom d'utilisateur" name="siren" >
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Mot de passe" name="siren" >
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Retaper le mot de passe" name="siren" >
+                            </div>
+
+
+                        </div>
+
+
+                        </form>
+                        <div class="col-md-12 mb-30">
+                            <div class="center-holder contact-form">
+                                <button type="submit"  >{{ 'registration.submit'|trans }}</button>
+                            </div>
+                        </div>
+
+                        <!-- Form END -->
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section END -->
+
+
+    {{ render(controller('NanotechEasylinkBundle:Default:footer')) }}
+
+
+    <!-- Scroll to top button Start -->
+    <a href="#" class="scroll-to-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+    <!-- Scroll to top button End -->
+
+{% endblock fos_user_content %}
